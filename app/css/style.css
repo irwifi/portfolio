@@ -1,0 +1,46 @@
+/* Root >>> */
+	@font-face {
+	     font-family: Audiowide;
+	     src: url('../fonts/Audiowide-Regular.ttf'); 
+	}
+
+	* {
+		margin: 0;
+		border: 0;
+		padding: 0;
+	}
+/* <<< Root */
+
+/* noscript >>> */
+	.noscript {
+		background-color: #00bff3;
+		height: 100vh;
+	}
+
+	.noscript .noscript_msg {
+		position: relative;
+		top: 30vh;
+		margin: 0 30vw;
+		color: #fff;
+		font-family: Audiowide;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+	}
+
+	.noscript_msg1 .noscript_msg_js {
+		font-size: 90px;
+		display: block;
+		color: #fce17e;
+		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
+	}
+
+	.noscript_msg .noscript_msg1 {
+		font-size: 48px;
+	}
+/* <<< noscript */
+
+.not_ready {
+	height: 100vh;
+	background:  #00BEEE url("../images/loading.gif") no-repeat fixed center;
+}
