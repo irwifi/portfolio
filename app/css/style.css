@@ -40,7 +40,79 @@
 	}
 /* <<< noscript */
 
-.not_ready {
-	height: 100vh;
-	background:  #00BEEE url("../images/loading.gif") no-repeat fixed center;
-}
+/* detect_ie >>> */
+	#detect_ie {
+		background-color: #00bff3;
+		position: absolute;
+		z-index: 100;
+		height: 100vh;
+		width: 100vw;
+
+	}
+
+	#detect_ie .ie_msg {
+		position: relative;
+		top: 30vh;
+		margin: 0 20vw;
+		color: #fff;
+		font-family: Audiowide;
+		font-weight: bold;
+		font-size: 32px;
+		text-align: center;
+	}
+
+	#detect_ie .browser_highlight_red {
+		font-size: 52px;
+		color: #f30;
+		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
+	}
+
+	#detect_ie .browser_highlight_green {
+		font-size: 36px;
+		color: #3c3;
+		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
+	}
+
+	#detect_ie .ie_msg3 {
+		font-size: 22px;
+	}
+/* <<< detect_ie */
+
+/* not_ready >>> */
+	.not_ready {
+		position: absolute;
+		z-index: 99;
+	}
+
+	.loading {
+		height: 100vh;
+		width: 100vw;
+		background:  #00BEEE url("../images/loading.gif") no-repeat fixed center;		
+	}
+/* <<< not_ready */
+
+/* i_am_ready >>> */
+	.i_am_ready {
+		position: absolute;
+		overflow: hidden;
+	}
+
+	.main_display {
+		background:  #00BEEE;
+		height: 100vh;
+		width: 100vw;
+	}
+/* <<< i_am_ready */
+
+/* avatar_container >>> */
+	.avatar_container {
+		text-align: center;
+	}
+
+	#avatar_img {
+		width:2px;
+		height: 2px;
+		margin-top: calc((100vh - 600px) / 2 - 100px);
+		opacity: 0.4;
+	}
+/* <<< avatar_container */

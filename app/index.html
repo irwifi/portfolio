@@ -3,8 +3,10 @@
 <head>
 	<meta content="text/html; charset=UTF-8"http-equiv=Content-Type>
 	<title>Raju Malla</title>
+	<link rel="icon" href="favicon.ico?" type="image/x-icon">
 	<link href=css/style.css rel=stylesheet>
 </head>
+
 <body>
 	<noscript>
 		<div class="noscript">
@@ -23,11 +25,65 @@
 		</style>
 	</noscript>
 
+	<div id="detect_ie">
+		<!-- This site is not compatible with IE because many of new features of JS is not workable in IE (not even in IE 11) -->
+	</div>
+
+	<script class="ie_block_script">
+		// Checks if the browser is IE or not
+		function detect_ie() {
+			var user_agent = window.navigator.userAgent
+
+			// MSIE for IE 10 or older and Trident for IE 11
+			if (user_agent.indexOf('MSIE ') > -1 || user_agent.indexOf('Trident/') > -1) {
+				return true;
+			} else {
+				// other browser
+				return false;
+			}
+		}
+
+		// Block Internet Explorer
+		var ie_browser = detect_ie();
+		if(ie_browser === true) {
+			document.getElementById("detect_ie").innerHTML = '\
+				<div class="ie_msg">\
+					<div class="ie_msg1">This site is not compatible with <span class="browser_highlight_red">Internet Explorer</span></div>\
+					<div class="ie_msg2">Please use Firefox, Chrome or Edge to open this site</div>\
+					<div class="ie_msg3">Best viewed in <span class="browser_highlight_green">Mozilla Firefox</span></div>\
+				</div>\
+			'
+		}
+	</script>
+
 	<div class="yesscript">
-		<div class="not_ready"></div>
+		<div class="not_ready">
+			<div class = "loading"></div>
+		</div>
 
 		<div class="i_am_ready">
-			<script src = "js/jquery-3.1.1.slim.min.js"></script>
+			<div class="main_display">
+				<div class="avatar_container container_block">
+					<img src="images/avatar.svg" id="avatar_img" />
+				</div>
+
+				<div class="quote_container container_block">
+				</div>
+
+				<div class="room_map_container container_block">
+				</div>
+
+				<div class="post_sign_container container_block">
+				</div>
+
+				<div class="list_container container_block">
+				</div>
+
+				<div class="content_display_container container_block">
+				</div>
+			</div>
+			
+			<script src = "js/jquery-3.1.1.min.js"></script>
 			<script src = "js/main.js"></script>
 		</div>
 	</div>
