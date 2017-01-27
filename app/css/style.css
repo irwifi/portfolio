@@ -8,6 +8,7 @@
 		margin: 0;
 		border: 0;
 		padding: 0;
+		text-align: center;
 	}
 /* <<< Root */
 
@@ -25,7 +26,6 @@
 		font-family: Audiowide;
 		font-weight: bold;
 		font-size: 32px;
-		text-align: center;
 	}
 
 	.noscript_msg1 .noscript_msg_js {
@@ -47,7 +47,6 @@
 		z-index: 100;
 		height: 100vh;
 		width: 100vw;
-
 	}
 
 	#detect_ie .ie_msg {
@@ -58,7 +57,6 @@
 		font-family: Audiowide;
 		font-weight: bold;
 		font-size: 32px;
-		text-align: center;
 	}
 
 	#detect_ie .browser_highlight_red {
@@ -105,14 +103,24 @@
 /* <<< i_am_ready */
 
 /* avatar_container >>> */
-	.avatar_container {
-		text-align: center;
-	}
-
 	#avatar_img {
 		width:2px;
 		height: 2px;
 		margin-top: calc((100vh - 600px) / 2 - 100px);
 		opacity: 0.4;
+	}
+
+	.intro_box {
+		margin: 0 auto;
+		border-radius:5px;
+		margin-top: 5px;
+		background: #000;
+		width:1px;
+		height: 100px;
+		line-height: 100px;
+		font-size: 32px;
+		color: #33fc33;
+		font-family: Audiowide;
+		overflow: hidden;
 	}
 /* <<< avatar_container */
