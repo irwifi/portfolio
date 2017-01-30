@@ -5,108 +5,127 @@
 	}
 
 	* {
-		margin: 0;
+		margin: 0 auto;
 		border: 0;
 		padding: 0;
 		text-align: center;
+		background-color: #00bff3;
+	}
+
+	body {
+		width: 100vw;
+		height: 100vh;
+		overflow: auto;
 	}
 /* <<< Root */
 
 /* noscript >>> */
-	.noscript {
-		background-color: #00bff3;
-		height: 100vh;
+	noscript {
+		width: inherit;
+		height: inherit;
+		position: absolute;
+		z-index: 100;
+		display: block;
 	}
+
 
 	.noscript .noscript_msg {
 		position: relative;
 		top: 30vh;
-		margin: 0 30vw;
 		color: #fff;
 		font-family: Audiowide;
 		font-weight: bold;
-		font-size: 32px;
+		font-size: 3vh;
 	}
 
 	.noscript_msg1 .noscript_msg_js {
-		font-size: 90px;
+		font-size: 9vh;
 		display: block;
 		color: #fce17e;
 		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
 	}
 
 	.noscript_msg .noscript_msg1 {
-		font-size: 48px;
+		font-size: 4.8vh;
 	}
 /* <<< noscript */
 
+/* yesscript >>> */
+	.yesscript {
+		height: inherit;
+		width: inherit;
+		overflow: hidden;
+	}
+/* <<< yesscript */
+
 /* detect_ie >>> */
 	#detect_ie {
-		background-color: #00bff3;
 		position: absolute;
-		z-index: 100;
-		height: 100vh;
-		width: 100vw;
+		z-index: 99;
+		height: inherit;
+		width: inherit;
 	}
 
 	#detect_ie .ie_msg {
 		position: relative;
 		top: 30vh;
-		margin: 0 20vw;
 		color: #fff;
 		font-family: Audiowide;
 		font-weight: bold;
-		font-size: 32px;
+		font-size: 2vw;
 	}
 
 	#detect_ie .browser_highlight_red {
-		font-size: 52px;
-		color: #f30;
+		font-size: 3.4vw;
+		color: #bd0000;
 		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
 	}
 
 	#detect_ie .browser_highlight_green {
-		font-size: 36px;
+		font-size: 2vw;
 		color: #3c3;
 		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
 	}
 
 	#detect_ie .ie_msg3 {
-		font-size: 22px;
+		font-size: 1.5vw;
 	}
 /* <<< detect_ie */
 
 /* not_ready >>> */
 	.not_ready {
+		height: inherit;
+		width: inherit;
 		position: absolute;
-		z-index: 99;
+		z-index: 98;
 	}
 
 	.loading {
-		height: 100vh;
-		width: 100vw;
-		background:  #00BEEE url("../images/loading.gif") no-repeat fixed center;		
+		height: inherit;
+		width: inherit;
+		background: url("../images/loading.gif") no-repeat fixed center;		
 	}
 /* <<< not_ready */
 
 /* i_am_ready >>> */
 	.i_am_ready {
+		width: inherit;
+		height: inherit;
 		position: absolute;
 		overflow: hidden;
 	}
 
 	.main_display {
-		background:  #00BEEE;
-		height: 100vh;
-		width: 100vw;
+		width: inherit;
+		height: inherit;
 	}
 /* <<< i_am_ready */
 
 /* avatar_container >>> */
 	#avatar_img {
-		width:2px;
-		height: 2px;
-		margin-top: calc((100vh - 600px) / 2 - 100px);
+		width:1px;
+		height: 1px;
+		margin-top: 11vh;
 		opacity: 0.4;
 	}
 
@@ -116,11 +135,25 @@
 		margin-top: 5px;
 		background: #000;
 		width:1px;
-		height: 100px;
-		line-height: 100px;
-		font-size: 32px;
+		height: 10vh;
+		line-height: 10vh;
+		font-size: 2vw;
 		color: #33fc33;
 		font-family: Audiowide;
-		overflow: hidden;
+	}
+
+	.instruction_box {
+		margin-top: 4vh;
+	}
+
+	.instruction_box .instruction_msg {
+		border: 2px solid;
+		background: #fbdb65;
+		line-height: 5vh;
+		height: 5vh;
+		width: 60vw;
+		font-size: 1.2vw;
+		margin-top: 2vh;
+		margin-left: -82vw;
 	}
 /* <<< avatar_container */
