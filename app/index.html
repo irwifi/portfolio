@@ -16,47 +16,89 @@
 				IN YOUR BROWSER</div>
 				<div class="noscript_msg2">This site can not run without Javascript</div>
 			</div>
-		</div>
 
-		<style>
-			.yesscript {
-				display: none;
-			}
-		</style>
+			<style>
+				.yesscript {
+					display: none;
+				}
+			</style>
+		</div>
 	</noscript>
 
-	<div id="detect_ie">
-		<!-- This site is not compatible with IE because many of new features of JS is not workable in IE (not even in IE 11) -->
-	</div>
-
-	<script class="ie_block_script">
-		// Checks if the browser is IE or not
-		function detect_ie() {
-			var user_agent = window.navigator.userAgent
-
-			// MSIE for IE 10 or older and Trident for IE 11
-			if (user_agent.indexOf('MSIE ') > -1 || user_agent.indexOf('Trident/') > -1) {
-				return true;
-			} else {
-				// other browser
-				return false;
-			}
-		}
-
-		// Block Internet Explorer
-		var ie_browser = detect_ie();
-		if(ie_browser === true) {
-			document.getElementById("detect_ie").innerHTML = '\
-				<div class="ie_msg">\
-					<div class="ie_msg1">This site is not compatible with <span class="browser_highlight_red">Internet Explorer</span></div>\
-					<div class="ie_msg2">Please use Firefox, Chrome or Edge to open this site</div>\
-					<div class="ie_msg3">Best viewed in <span class="browser_highlight_green">Mozilla Firefox</span></div>\
-				</div>\
-			'
-		}
-	</script>
-
 	<div class="yesscript">
+		<div id="detect_ie">
+			<!-- This site is not compatible with IE because many of new features of JS is not workable in IE (not even in IE 11) -->
+		</div>
+
+		<script class="ie_block_script">
+			// Checks if the browser is IE or not
+			function detect_ie() {
+				var user_agent = window.navigator.userAgent
+
+				// MSIE for IE 10 or older and Trident for IE 11
+				if (user_agent.indexOf('MSIE ') > -1 || user_agent.indexOf('Trident/') > -1) {
+					return true;
+				} else {
+					// other browser
+					return false;
+				}
+			}
+
+			// Block Internet Explorer
+			var ie_browser = detect_ie();
+			if(ie_browser === true) {
+				document.getElementById("detect_ie").innerHTML = '\
+					<div class="ie_msg">\
+						<div class="ie_msg1">This site is not compatible with <span class="browser_highlight_red">Internet Explorer</span></div>\
+						<div class="ie_msg2">Please use Firefox, Chrome or Edge to open this site</div>\
+						<div class="ie_msg3">Best viewed in <span class="browser_highlight_green">Mozilla Firefox</span></div>\
+					</div>\
+				'
+			}
+		</script>
+
+		<div id="detect_portrait" class="modal">
+			<!-- If Portrait mode is detected display message to view in Landscape mode for better user experience. -->
+			 <!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<h2>!!!</h2>
+				</div>
+				<div class="modal-body">
+					<p>Portrait mode detected</p>
+					<p>Please reload the page in Landscape mode for better user experience</p>
+				</div>
+				<div class="modal-footer"><h3>&nbsp</h3></div>
+			</div>
+		</div>
+
+		<script class="portrait_script">
+			// Get the modal
+			var modal = document.getElementById('detect_portrait');
+
+			// Checks if the browser is in Portrait mode
+			if(window.innerHeight > window.innerWidth) {
+			    modal.style.display = "block";
+			}
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+				modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
+		</script>
+
 		<div class="not_ready">
 			<div class = "loading"></div>
 		</div>
@@ -65,17 +107,26 @@
 			<div class="main_display">
 				<div class="avatar_container container_block">
 					<img src="images/avatar.svg" id="avatar_img" />
-					<audio class="audio_avatar_intro" src="media/avatar_intro.mp3" preload="auto"></audio>
 
-					<div class="intro_box" data-text="Hi, I am Raju Malla"></div>
-					<audio class="audio_intro_box_expand" src="media/intro_box_expand.mp3" preload="auto"></audio>
-					<audio class="audio_intro_type" src="media/intro_type.mp3" preload="auto"></audio>
+					<div class="avatar_intro">
+						<audio class="audio_avatar_intro" src="media/avatar_intro.mp3" preload="auto"></audio>
+
+						<div class="intro_box" data-text="Hi, I am Raju Malla"></div>
+						<audio class="audio_intro_box_expand" src="media/intro_box_expand.mp3" preload="auto"></audio>
+						<audio class="audio_intro_type" src="media/intro_type.mp3" preload="auto"></audio>
+
+						<div class="instruction_box">
+							<div class="instruction_msg1 instruction_msg">I am your guide through this tour about Real Me</div>
+							<div class="instruction_msg2 instruction_msg">Press any key or Click to continue through the tour</div>
+							<audio class="audio_instruction_flyby" src="media/instruction_flyby.mp3" preload="auto"></audio>
+						</div>
+					</div>
 				</div>
 
 				<div class="quote_container container_block">
 				</div>
 
-				<div class="room_map_container container_block">
+				<div class="map_container container_block">
 				</div>
 
 				<div class="post_sign_container container_block">
