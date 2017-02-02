@@ -5,8 +5,8 @@
 	}
 
 	@font-face {
-	     font-family: Handlee;
-	     src: url('../fonts/Handlee.ttf'); 
+	     font-family: Iceland;
+	     src: url('../fonts/Iceland.ttf'); 
 	}
 
 	* {
@@ -20,7 +20,7 @@
 		width: 100vw;
 		height: 100vh;
 		overflow: auto;
-		background-color: #00bff3;
+		background: #00bff3;
 	}
 /* <<< Root */
 
@@ -31,8 +31,8 @@
 		position: absolute;
 		z-index: 100;
 		display: block;
+		background: #00bff3;
 	}
-
 
 	.noscript .noscript_msg {
 		position: relative;
@@ -60,6 +60,7 @@
 		height: inherit;
 		width: inherit;
 		overflow: hidden;
+		background: #00bff3;
 	}
 /* <<< yesscript */
 
@@ -69,6 +70,7 @@
 		z-index: 99;
 		height: inherit;
 		width: inherit;
+		background: #00bff3;
 	}
 
 	#detect_ie .ie_msg {
@@ -163,7 +165,7 @@
 		padding: 2px 16px;
 		margin: 100px 0;
 		font-size: 24px;
-		font-family: Handlee;
+		font-family: Iceland;
 		font-weight: bold;
 		color: #f44336 ;
 	}
@@ -181,6 +183,7 @@
 		width: inherit;
 		position: absolute;
 		z-index: 98;
+		background: #00bff3;
 	}
 
 	.loading {
@@ -246,8 +249,8 @@
 		line-height: 5vh;
 		height: 5vh;
 		width: 45vw;
-		font-size: 1.2vw;
-		font-family: Handlee;
+		font-size: 1.6vw;
+		font-family: Iceland;
 		font-weight: bold;
 		margin-top: 20px;
 		margin-left: -82vw;
