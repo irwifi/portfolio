@@ -99,19 +99,28 @@
 	}
 /* <<< detect_ie */
 
+/* portrait mode >>> */
+	#detect_portrait {
+		position: absolute;
+		z-index: 98;
+		height: inherit;
+		width: inherit;
+		background: #00bff3;
+	}
+/* <<< portrait mode */
+
 /* modal box >>> */
 	.modal {
-	    display: none; /* Hidden by default */
-	    position: fixed; /* Stay in place */
-	    z-index: 1; /* Sit on top */
-	    padding-top: 100px; /* Location of the box */
-	    left: 0;
-	    top: 0;
-	    width: 100%; /* Full width */
-	    height: 100%; /* Full height */
-	    overflow: auto; /* Enable scroll if needed */
-	    background-color: rgb(0,0,0); /* Fallback color */
-	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 	}
 
 	/* Modal Content */
@@ -119,9 +128,11 @@
 	    position: relative;
 	    background-color: #fefefe;
 	    margin: auto;
+	    margin-top: 100px; /* Location of the box */
 	    padding: 0;
 	    border: 1px solid #888;
 	    width: 80%;
+	    max-width: 700px;
 	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	    -webkit-animation-name: animatetop;
 	    -webkit-animation-duration: 0.4s;
@@ -182,14 +193,14 @@
 		height: inherit;
 		width: inherit;
 		position: absolute;
-		z-index: 98;
+		z-index: 97;
 		background: #00bff3;
 	}
 
 	.loading {
 		height: inherit;
 		width: inherit;
-		background: url("../images/loading.gif") no-repeat fixed center;		
+		background: url("../images/loading.gif") no-repeat fixed center;
 	}
 /* <<< not_ready */
 
@@ -221,8 +232,6 @@
 		height: 1px;
 		margin-top: 11vh;
 		opacity: 0.4;
-		filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
-		-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
 	}
 
 	.intro_box {
@@ -230,7 +239,7 @@
 		border-radius:5px;
 		margin-top: 5px;
 		background: #000;
-		width:1px;
+		width: 0px;
 		height: 10vh;
 		line-height: 10vh;
 		font-size: 2vw;

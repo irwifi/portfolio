@@ -1,16 +1,14 @@
 "use strict";
 // The handles are created because the functions can not be used before declared
-const init_handle = () => {init()}
 const skipper_handle = () => {skipper()}
-
-// Initialize the objects  when page is ready
-let dev_mode = init_handle
+const portrait_handle = () => {check_portrait()}
+let dev_mode = portrait_handle
 // This mode is for skipping steps during development testing
 // dev_mode = skipper_handle
 $(dev_mode)
 
-// Initialize the page
-const init = () => {
+// Checks for the portrait mode
+const check_portrait = () => {
 	// Remove the noscript block
 	$("noscript").remove()
 
@@ -18,9 +16,38 @@ const init = () => {
 	$("#detect_ie").remove()
 	$(".ie_block_script").remove()
 
-	// Hide intro box
-	$(".avatar_container .intro_box").hide()
+	// Checks if the browser is in Portrait mode
+	if(window.innerHeight > window.innerWidth) {
+		// Get the modal
+		const modal = document.getElementById('detect_portrait')
+		modal.style.display = "block"
 
+		// Get the <span> element that closes the modal
+		const span = document.getElementsByClassName("close")[0]
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none"
+			init()
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none"
+				init()
+			}
+		}
+	} else {
+		init()
+	}
+}
+
+// Initialize the page
+const init = () => {
+	// Remove the Portrait mode script
+	$("#detect_portrait").remove()
+	
 	// Remove the loading screen once the page is ready
 	$(".not_ready").remove()
 		
