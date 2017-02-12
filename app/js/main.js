@@ -53,7 +53,7 @@ const init = () => {
 		
 	// Make the avatar appear
 	$(".audio_avatar_intro")[0].play()
-	$(".avatar_container #avatar_img").animate({width: '40vh', height: '40vh'}, 800)
+	$(".avatar_container #avatar_img").animate({width: '21.8vw', height: '21.8vw'}, 800)
 	$(".avatar_container #avatar_img").fadeTo(1800, 1, avatar_intro_post)	
 }
 
@@ -105,55 +105,105 @@ const simulate_typing_post = () => {
 // After flying first instruction message
 const instruction_msg1_flyby_post = () => {
 	$(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
-	setTimeout(() => {$(".audio_instruction_flyby")[0].play()}, 800);
+	setTimeout(() => {$(".audio_instruction_flyby")[0].play()}, 800)
 	const new_left = ($(".instruction_box").css("width").replace('px', '') - $(".instruction_msg").css("width").replace('px', '')) / 2
+	$(".instruction_box .instruction_msg2").css({"margin-top": "1.1vw"})
 	$(".instruction_box .instruction_msg2").delay(800).animate({"margin-left": new_left}, 400, instruction_msg2_flyby_post)
 }
 
 // After flying second instruction message
 const instruction_msg2_flyby_post = () => {
-	$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top": 20})
+	$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top": "1.1vw"})
 
-	$(document).on("click", close_intro)
-	$(document).on("keypress", close_intro)
+	$(document).on("click", intro_close)
+	$(document).on("keypress", intro_close)
 }
 
-// Click and Keypress event listener after introduction of avatar
-const close_intro = () => {
+// Click and Keypress event listener for intro closing
+const intro_close = () => {
 	$(document).off("click")
-	$(document).off("keypress")	
+	$(document).off("keypress")
 	$(".avatar_intro").fadeTo(1200, 0, fading_avatar_intro_post)
 }
 
 // After fading out avatar intro
 const fading_avatar_intro_post = () => {
 	$(".avatar_intro").remove()
-	$(".avatar_container").css({"border": "0.8vh solid #3A494D", "border-radius": "0.6vw", width:"50vh", height: "41vh", "margin-top":"10.2vh"})
-	$(".avatar_container #avatar_img").css({"margin-top":"0px"}).animate({width: '11vw', height: '11vw'}, 800)
-	$(".avatar_container").animate({width: '14vw', height: '11vw', margin: "0.8vw"}, 800)
+	$(".avatar_container").css({background: "#FFF", "border": "0.32vw solid #222", "border-radius": "0.6vw", width:"27.36vw", height: "21.8vw","top": "5.7vw", "left": "36vw", "position":"absolute"})
+	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '11vw', height: '11vw'}, 800)
+	$(".avatar_container").animate({width: '14vw', height: '11vw', margin: "0.8vw", "top": "0", "left": "0"}, 800, avatar_minimize_post)
+}
+
+// After minimizing the avatar
+const avatar_minimize_post = () => {
+	$(".map_container").fadeIn(1200)
+	$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
+	$(".quote_container").show(1000)
+
+	$(document).on("click", map_intro_close)
+	$(document).on("keypress", map_intro_close)
+}
+
+// Click and Keypress event listener for map intro closing
+const map_intro_close = () => {
+	$(document).off("click")
+	$(document).off("keypress")	
+
+	$(".map_container .map_label, .map_container .map_location").hide()
+	$(".quote_container").hide(1000)
+	$(".map_container .map").animate({"max-width": "14vw", "min-width": "14vw"})
+	$(".map_container").animate({width: '14vw', height: '10.45vw', margin: "0.8vw", "top": "12.3vw", "left": "0"}, 800, map_minimize_post)
+}
+
+// After minimizing map
+const map_minimize_post = () => {
+	$(".map_container").addClass("map_container_min")
+	$(".map_container_min .map_label, .map_container_min .map_location").show()
+	$(".sign_post_container").show()
 }
 
 // Skipper function to skip through the steps
 const skipper = () => {
-	$("noscript").remove()
-	$("#detect_ie").remove()
-	$(".ie_block_script").remove()
-	$(".not_ready").remove()
-	$(".avatar_container #avatar_img").css({width: '40vh', height: '40vh', opacity: 1})
+	// check_portrait()
+		$("noscript").remove()
+		$("#detect_ie").remove()
+		$(".ie_block_script").remove()
+	// init()
+		$("#detect_portrait").remove()
+		$(".not_ready").remove()
+		$(".avatar_container #avatar_img").css({width: '21.8vw', height: '21.8vw', opacity: 1})
 	// avatar_intro_post()
-	$(".avatar_container .intro_box").show()
-	$(".avatar_container .intro_box").css({width: '36vw'})
+		$(".avatar_container .intro_box").show()
+		$(".avatar_container .intro_box").css({width: '36vw'})
 	// intro_box_post()
-	$(".intro_box").text($(".intro_box").data("text"))
+		$(".intro_box").text($(".intro_box").data("text"))
 	// simulate_typing_post()
-	$(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
+		$(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
 	// instruction_msg1_flyby_post()
-	$(".instruction_box .instruction_msg2").css({"margin": "0 auto"})
-	$(document).on("click", close_intro)
-	$(document).on("keypress", close_intro)
+		$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
 	// instruction_msg2_flyby_post()
-	$(".avatar_intro").remove()
-	$(".avatar_container #avatar_img").css({"margin-top":"0px", width: '11vw', height: '11vw'})
-	$(".avatar_container").css({"border": "0.5vh solid #3A494D", "border-radius": "0.6vw", width: '14vw', height: '11vw', margin: "0.8vw"})
+		$(document).on("click", intro_close)
+		$(document).on("keypress", intro_close)
+	// intro_close()
+		$(document).off("click")
+		$(document).off("keypress")
+		$(".avatar_intro").remove()
 	// fading_avatar_intro_post()
+		$(".avatar_container #avatar_img").css({"margin-top":"0", width: '11vw', height: '11vw'})
+		$(".avatar_container").css({background: "#FFF", "border": "0.28vw solid #222", "border-radius": "0.6vw", width: '14vw', height: '11vw', margin: "0.8vw"})
+	// avatar_minimize_post()
+		$(".map_container").show()
+		$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
+		$(".quote_container").show()
+		$(document).on("click", map_intro_close)
+		$(document).on("keypress", map_intro_close)
+	// map_intro_close()
+		$(document).off("click")
+		$(document).off("keypress")
+		$(".quote_container").hide()
+		$(".map_container .map").css({"max-width": "14vw", "min-width": "14vw"})
+		$(".map_container").css({width: '14vw', height: '10.45vw', margin: "0.8vw", "top": "12.3vw", "left": "0"})
+	map_minimize_post()
+		// $(".map_container").addClass("map_container_min")
+		
 }

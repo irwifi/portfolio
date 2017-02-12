@@ -14,6 +14,7 @@
 		border: 0;
 		padding: 0;
 		text-align: center;
+		font-family: Iceland;
 	}
 
 	body {
@@ -215,6 +216,8 @@
 	.main_display {
 		width: inherit;
 		height: inherit;
+		overflow: auto;
+		position: relative;
 	}
 
 	.container_block {
@@ -228,50 +231,441 @@
 	}
 
 	#avatar_img {
-		width:1px;
-		height: 1px;
-		margin-top: 11vh;
+		width:0.01vw;
+		height: 0.01vw;
+		margin-top: 6vw;
 		opacity: 0.4;
 	}
 
 	.intro_box {
 		margin: 0 auto;
-		border-radius:5px;
-		margin-top: 5px;
+		border-radius: 0.2vw;
+		margin-top: 0.3vw;
 		background: #000;
-		width: 0px;
-		height: 10vh;
-		line-height: 10vh;
+		width: 0;
+		height: 5.45vw;
+		line-height: 5.45vw;
 		font-size: 2vw;
 		color: #33fc33;
 		font-family: Audiowide;
 	}
 
 	.instruction_box {
-		margin-top: 4vh;
+		margin-top: 2.3vw;
 	}
 
 	.instruction_box .instruction_msg {
-		border: 2px solid #0089f3;
-		border-radius: 5px;
+		border: 0.1vw solid #0089f3;
+		border-radius: 0.3vw;
 		background: #e7ff99;
-		line-height: 5vh;
-		height: 5vh;
+		line-height: 2.72vw;
+		height: 2.72vw;
 		width: 45vw;
 		font-size: 1.6vw;
-		font-family: Iceland;
 		font-weight: bold;
-		margin-top: 20px;
+		margin-top: 2vw;
 		margin-left: -82vw;
 		color: #0077f3
 	}
 /* <<< avatar_container */
 
+/* quote_container >>> */
+	.quote_container {
+		background: url("../images/banner2.png") no-repeat;
+		background-size: 75vw 12.16vw;
+		position: absolute;
+		text-align: left;
+		font-weight: bold;
+		font-size: 1.6vw;
+		color: #FFF;
+		width: 62.1vw;
+		height: 8.1vw;
+		top: 0.2vw;
+		left: 15.2vw;
+		padding: 3vw 9.72vw 1vw 3vw;
+	}
+/* <<< quote_container */
+
 /* map_container >>> */
 	.map_container {
-		border: 0.8vh solid #3A494D;
-		border-radius: 12px;
-		width: 60vw;
-		height: 60vh;
+		border: 0.32vw solid #222;
+		border-radius: 0.6vw;
+		width: 51.7vw;
+		height: 38.7vw;
+		text-align: left;
+		position: absolute;
+		overflow: hidden;
+		top:13.3vw;
+		left:24vw;
+	}
+
+	.map_container img {
+		position: absolute;
+		transition: all .2s ease-in-out;
+	}
+
+	.map_container .map_location:hover {
+		transform: scale(2);
+		cursor: pointer;
+	}
+
+	.map_container .map {
+		max-width: 51.7vw;
+		min-width: 51.7vw;
+	}
+
+	.map_container .map_zoom {
+		display: none;
+	}
+
+	.map_container_min .map_zoom {
+		display: block;
+		max-width: 2vw;
+		min-width: 2vw;
+		left:12.1vw;
+	}
+
+	.map_container .map_pointer {
+		max-width: 2vw;
+		min-width: 2vw;
+		top: 28.6vw;
+		left: 8.5vw;
+	}
+
+	.map_container_min .map_pointer {
+		max-width: 0.7vw;
+		min-width: 0.7vw;
+		top: 7.5vw;
+		left: 2.3vw;
+	}
+
+	.map_container .map_label {
+		background: url("../images/banner.png") no-repeat;
+		background-size: 14vw 2vw;
+		width: 14vw;
+		height: 2vw;
+		position: absolute;
+		text-align: center;
+		font-size: 0.7vw;
+		font-weight: bold;
+		color: #ffff36;
+		padding-top: 1vw;
+	}
+
+	.map_container_min .map_label {
+		background-size: 3.8vw 0.54vw;
+		width: 3.8vw;
+		height: 0.54vw;
+		font-size: 0.19vw;
+		padding-top: 0.27vw;
+	}
+
+	.map_container .map_welcome {
+		max-width: 2vw;
+		min-width: 2vw;
+		top: 31.7vw;
+		left: 8.5vw;
+	}
+
+	.map_container_min .map_welcome {
+		max-width: 0.54vw;
+		min-width: 0.54vw;
+		top: 8.6vw;
+		left: 2.3vw;
+	}
+
+	.map_container .label_welcome {
+		top: 33.1vw;
+		left: 2.6vw;
+	}
+
+	.map_container_min .label_welcome {
+		top: 8.96vw;
+		left: 0.7vw;
+	}
+
+	.map_container .map_about_me {
+		max-width: 3.2vw;
+		min-width: 3.2vw;
+		top: 25.6vw;
+		left: 15.9vw;
+	}
+
+	.map_container_min .map_about_me {
+		max-width: 0.86vw;
+		min-width: 0.86vw;
+		top: 6.91vw;
+		left: 4.4vw;
+	}
+
+	.map_container .label_about_me {
+		top: 27.7vw;
+		left: 10.46vw;
+	}
+
+	.map_container_min .label_about_me {
+		top: 7.48vw;
+		left: 2.83vw;
+	}
+
+	.map_container .map_strength {
+		max-width: 3.8vw;
+		min-width: 3.8vw;
+		top: 28.2vw;
+		left: 30.6vw;
+	}
+
+	.map_container_min .map_strength {
+		max-width: 1.03vw;
+		min-width: 1.03vw;
+		top: 7.62vw;
+		left: 8.26vw;
+	}
+
+	.map_container .label_strength {
+		top: 32vw;
+		left: 25.6vw;
+	}
+
+	.map_container_min .label_strength {
+		top: 8.64vw;
+		left: 6.91vw;
+	}
+
+	.map_container .map_skills {
+		max-width: 2vw;
+		min-width: 2vw;
+		top: 28.3vw;
+		left: 44.8vw;
+	}
+
+	.map_container_min .map_skills {
+		max-width: 0.54vw;
+		min-width: 0.54vw;
+		top: 7.64vw;
+		left: 12.1vw;
+	}
+	
+	.map_container .label_skills {
+		top: 29.6vw;
+		left: 38.4vw;
+	}
+
+	.map_container_min .label_skills {
+		top: 8.0vw;
+		left: 10.37vw;
+	}
+
+	.map_container .map_education {
+		max-width: 3.2vw;
+		min-width: 3.2vw;
+		top: 20.8vw;
+		left: 38.7vw;
+	}
+
+	.map_container_min .map_education {
+		max-width: 0.86vw;
+		min-width: 0.86vw;
+		top: 5.52vw;
+		left: 10.5vw;
+	}
+	
+	.map_container .label_education {
+		top: 22.9vw;
+		left: 33.3vw;
+	}
+
+	.map_container_min .label_education {
+		top: 6.18vw;
+		left: 9.0vw;
+	}
+
+	.map_container .map_experience {
+		max-width: 6vw;
+		min-width: 6vw;
+		top: 20.5vw;
+		left: 24.6vw;
+	}
+
+	.map_container_min .map_experience {
+		max-width: 1.62vw;
+		min-width: 1.62vw;
+		top: 5.54vw;
+		left: 6.65vw;
+	}
+	
+	.map_container .label_experience {
+		top: 25.3vw;
+		left: 20.6vw;
+	}
+
+	.map_container_min .label_experience {
+		top: 6.83vw;
+		left: 5.56vw;
+	}
+
+	.map_container .map_portfolio {
+		max-width: 4vw;
+		min-width: 4vw;
+		top: 17.8vw;
+		left: 17.9vw;
+	}
+
+	.map_container_min .map_portfolio {
+		max-width: 1.08vw;
+		min-width: 1.08vw;
+		top: 4.81vw;
+		left: 4.83vw;
+	}
+	
+	.map_container .label_portfolio {
+		top: 20.1vw;
+		left: 13.08vw;
+	}
+
+	.map_container_min .label_portfolio {
+		top: 5.42vw;
+		left: 3.53vw;
+	}
+
+	.map_container .map_interests {
+		max-width: 6vw;
+		min-width: 6vw;
+		top: 12.9vw;
+		left: 29.8vw;
+	}
+
+	.map_container_min .map_interests {
+		max-width: 1.62vw;
+		min-width: 1.62vw;
+		top: 3.48vw;
+		left: 8.05vw;
+	}
+	
+	.map_container .label_interests {
+		top: 15.6vw;
+		left: 25.8vw;
+	}
+
+	.map_container_min .label_interests {
+		top: 4.21vw;
+		left: 6.97vw;
+	}
+
+	.map_container .map_testimonial {
+		max-width: 3.2vw;
+		min-width: 3.2vw;
+		top: 10.2vw;
+		left: 42.4vw;
+	}
+
+	.map_container_min .map_testimonial {
+		max-width: 0.86vw;
+		min-width: 0.86vw;
+		top: 2.75vw;
+		left: 11.5vw;
+	}
+	
+	.map_container .label_testimonial {
+		top: 11.4vw;
+		left: 36.9vw;
+	}
+
+	.map_container_min .label_testimonial {
+		top: 3.08vw;
+		left: 9.96vw;
+	}
+
+	.map_container .map_address {
+		max-width: 1.4vw;
+		min-width: 1.4vw;
+		top: 5.5vw;
+		left: 33vw;
+	}
+
+	.map_container_min .map_address {
+		max-width: 0.38vw;
+		min-width: 0.38vw;
+		top: 1.49vw;
+		left: 8.91vw;
+	}
+	
+	.map_container .label_address {
+		top: 6.2vw;
+		left: 26.7vw;
+	}
+
+	.map_container_min .label_address {
+		top: 1.67vw;
+		left: 7.21vw;
+	}
+
+	.map_container .map_resume {
+		max-width: 3.2vw;
+		min-width: 3.2vw;
+		top: 5.1vw;
+		left: 19.1vw;
+	}
+
+	.map_container_min .map_resume {
+		max-width: 0.86vw;
+		min-width: 0.86vw;
+		top: 1.38vw;
+		left: 5.16vw;
+	}
+	
+	.map_container .label_resume {
+		top: 7.4vw;
+		left: 13.6vw;
+	}
+
+	.map_container_min .label_resume {
+		top: 2.0vw;
+		left: 3.67vw;
+	}
+
+	.map_container .map_end {
+		max-width: 2vw;
+		min-width: 2vw;
+		top: 14.8vw;
+		left: 13.5vw;
+	}
+
+	.map_container_min .map_end {
+		max-width: 0.54vw;
+		min-width: 0.54vw;
+		top: 4.0vw;
+		left: 3.65vw;
+	}
+	
+	.map_container .label_end {
+		top:16.2vw;
+		left: 7.6vw;
+	}
+	.map_container_min .label_end {
+		top: 4.37vw;
+		left: 2.05vw;
 	}
 /* <<< map_container */
+
+/* sign_post_container >>> */
+	.sign_post_container {
+		/*border: 0.28vw solid #222;*/
+		/*border-radius: 0.6vw;*/
+		margin: 0.8vw;
+		position: absolute;
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.6vw;
+		color: #FFF;
+		top: 24vw;
+		left: 0;
+		width: 14.28vw;
+		height: 11.28vw; 
+	}
+
+	.sign_post_container img {
+		/*width: 12vw;*/
+		height: 10.74vw;
+	}
+/* <<< sign_post_container */
