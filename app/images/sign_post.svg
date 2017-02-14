@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
-<svg width="900" height="850" xmlns="http://www.w3.org/2000/svg">
+<svg width="1220" height="870" xmlns="http://www.w3.org/2000/svg">
 	<metadata id="metadata7">image/svg+xml</metadata>
 	<g>
 		<title>Layer 1</title>
 		<g id="g1">
-			<rect fill="#e6e6e6" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" width="50" height="830" x="120" y="20" rx="5" ry="5" id="rect1_1" />
+			<rect fill="#CCC" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" width="50" height="830" x="130" y="20" rx="5" ry="5" id="rect1_1" />
 		</g>
 
 		<g id="g2">
-			<rect fill="#e6e6e6" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" width="50" height="830" x="760" y="20" rx="5" ry="5" id="rect2_1" />
+			<rect fill="#CCC" stroke="#0F0F0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" width="50" height="830" x="1040" y="20" rx="5" ry="5" id="rect2_1" />
 		</g>
 
 		<g id="g3">
-			<rect fill="#13753C" stroke="#13753C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="30" ry="30" y="50" x="20" height="360" width="880" id="rect3_1" />
-			<rect fill="#13753C" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="23" ry="23" y="58" x="28" height="344" width="864" id="rect3_2" />
+			<rect fill="#13753C" stroke="#13753C" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="30" ry="30" y="60" x="30" height="338" width="1160" id="rect3_1" />
+			<rect fill="#13753C" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="23" ry="23" y="68" x="38" height="324" width="1144" id="rect3_2" />
 		</g>
 
 		<g id="g4">
-			<rect fill="#13753C" stroke="#13753C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="30" ry="30" y="450" x="20" height="190" width="880" id="rect4_1"/>
-			<rect fill="#13753C" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="23" ry="23" y="458" x="28" height="174" width="864" id="rect4_2" />
+			<rect fill="#13753C" stroke="#13753C" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="30" ry="30" y="460" x="30" height="190" width="1160" id="rect4_1"/>
+			<rect fill="#13753C" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="23" ry="23" y="468" x="38" height="174" width="1144" id="rect4_2" />
+
+			<g id="g5">
+				<rect fill="white" stroke="white" stroke-width="0" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="4" rx="4" ry="4" y="530" x="940" height="50" width="180" id="rect5_1"/>
+				<polygon points="1080 510, 1080 600, 1160 555" style="fill: white"  id="polygon5_1" />
+			</g>
 		</g>
 	</g>
 </svg>

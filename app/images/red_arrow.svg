@@ -1,0 +1,26 @@
+<svg width="132" height="67" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient x1="0.28096" y1="0.97628" x2="0.17538" y2="1.20755" id="imagebot_24">
+   <stop stop-color="#FF1C1C" offset="0" id="imagebot_30"/>
+   <stop stop-color="#FF1C1C" stop-opacity="0" offset="1" id="imagebot_29"/>
+  </linearGradient>
+  <linearGradient x1="0.35952" y1="0.49717" x2="0.22441" y2="1.03487" id="imagebot_22">
+   <stop stop-color="#ffffff" offset="0" id="imagebot_28"/>
+   <stop stop-color="#ffffff" stop-opacity="0" offset="1" id="imagebot_27"/>
+  </linearGradient>
+  <radialGradient r="168.07" gradientTransform="matrix(3.2348 .32925 -.040219 .39514 -1057.4 94.409)" cx="456.52" cy="28.498" gradientUnits="userSpaceOnUse" id="imagebot_20">
+   <stop stop-color="#ffffff" offset="0" id="imagebot_26"/>
+   <stop stop-color="#ffffff" stop-opacity="0" offset="1" id="imagebot_25"/>
+  </radialGradient>
+ </defs>
+ <g label="Layer 1" id="imagebot_2">
+  <title>Layer 1</title>
+   <g transform="matrix(0.318855, 0, 0, 0.318855, -61.2329, -74.3889)" label="Layer 1" id="imagebot_17">
+    <g transform="matrix(.99029 .13902 -.13902 .99029 52.356 -52.934)" id="imagebot_18">
+     <path stroke="url(#imagebot_24)" stroke-width="7.7696" fill="url(#imagebot_24)" d="M210.34,461.54 C174.1,294.35 366.42,171.61 505.23,282.69 L543.456,235.108 L604.333,405.828 L421.613,386.78 L461.034,337.711 C361.762,253.065 229.884,323.264 210.344,461.541 L210.34,461.54 z" id="imagebot_23"/>
+     <path opacity="0.69886" stroke="url(#imagebot_22)" stroke-miterlimit="10" stroke-width="7.7696" fill="none" d="M210.97,429.6 C203.05,279.73 381.68,188.36 508.27,293.92 L541.292,252.815 L592.839,396.635 L438.509,380.746 L472.259,338.735 C372.537,249.558 250.429,306.179 210.969,429.599 L210.97,429.6 z" id="imagebot_21"/>
+     <path opacity="0.69886" fill="url(#imagebot_20)" d="M542.61,244.98 L538.263,250.385 L507.626,288.542 C443.656,237.472 370.076,232.712 302.856,264.522 C260.619,284.508 234.217,326.085 234.217,326.085 C372.647,193.145 438.987,352.173 568.067,316.028 L542.61,244.98 z" id="imagebot_19"/>
+   </g>
+  </g>
+ </g>
+</svg>

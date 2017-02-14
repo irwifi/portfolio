@@ -4,7 +4,7 @@ const skipper_handle = () => {skipper()}
 const portrait_handle = () => {check_portrait()}
 let dev_mode = portrait_handle
 // This mode is for skipping steps during development testing
-// dev_mode = skipper_handle
+dev_mode = skipper_handle
 $(dev_mode)
 
 // Checks for the portrait mode
@@ -130,8 +130,8 @@ const intro_close = () => {
 const fading_avatar_intro_post = () => {
 	$(".avatar_intro").remove()
 	$(".avatar_container").css({background: "#FFF", "border": "0.32vw solid #222", "border-radius": "0.6vw", width:"27.36vw", height: "21.8vw","top": "5.7vw", "left": "36vw", "position":"absolute"})
-	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '11vw', height: '11vw'}, 800)
-	$(".avatar_container").animate({width: '14vw', height: '11vw', margin: "0.8vw", "top": "0", "left": "0"}, 800, avatar_minimize_post)
+	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '10.45vw', height: '10.45vw'}, 800)
+	$(".avatar_container").animate({width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"}, 800, avatar_minimize_post)
 }
 
 // After minimizing the avatar
@@ -152,14 +152,45 @@ const map_intro_close = () => {
 	$(".map_container .map_label, .map_container .map_location").hide()
 	$(".quote_container").hide(1000)
 	$(".map_container .map").animate({"max-width": "14vw", "min-width": "14vw"})
-	$(".map_container").animate({width: '14vw', height: '10.45vw', margin: "0.8vw", "top": "12.3vw", "left": "0"}, 800, map_minimize_post)
+	$(".map_container").animate({"width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"}, 800, map_minimize_post)
 }
 
 // After minimizing map
 const map_minimize_post = () => {
 	$(".map_container").addClass("map_container_min")
 	$(".map_container_min .map_label, .map_container_min .map_location").show()
+	$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.")
+	$(".quote_container").show(1000)
+	$(".sign_post_container .sign_post_location").text("Welcome")
+	$(".sign_post_container .sign_post_next").text("About Me")
 	$(".sign_post_container").show()
+	$(".sign_post_container").animate({"bottom": "0"},1200, sign_post_fall_post)
+}
+
+// After falling of sign post
+const sign_post_fall_post = () => {
+	$(".sign_post_container .sign_post_red_arrow").show()
+	$(".sign_post_container div").addClass("animate")
+
+	$(document).on("click", sign_post_blink_post)
+	$(document).on("keypress", sign_post_blink_post)
+}
+
+// After blinking the red arrow
+const sign_post_blink_post = () => {
+	$(document).off("click")
+	$(document).off("keypress")
+	$(".sign_post_container div").animate({"opacity":"0"}, 800)
+	$(".sign_post_container .sign_post_red_arrow").hide(800, dissolve_post_location_post)
+}
+
+// After hiding the text of the sign post
+const dissolve_post_location_post = () => {
+	$(".quote_container").hide(600)
+	$(".quote_container").text("This is how I look.").show(600)
+	$(".sign_post_container div").css({"opacity": "1"}).hide()
+	$(".sign_post_container .sign_post_next").text("My Strength").show()
+	$(".sign_post_container .sign_post_location").text("About Me").show()
 }
 
 // Skipper function to skip through the steps
@@ -189,8 +220,8 @@ const skipper = () => {
 		$(document).off("keypress")
 		$(".avatar_intro").remove()
 	// fading_avatar_intro_post()
-		$(".avatar_container #avatar_img").css({"margin-top":"0", width: '11vw', height: '11vw'})
-		$(".avatar_container").css({background: "#FFF", "border": "0.28vw solid #222", "border-radius": "0.6vw", width: '14vw', height: '11vw', margin: "0.8vw"})
+		$(".avatar_container #avatar_img").css({"margin-top":"0", width: '10.45vw', height: '10.45vw'})
+		$(".avatar_container").css({background: "#FFF", "border": "0.28vw solid #222", "border-radius": "0.6vw", width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw"})
 	// avatar_minimize_post()
 		$(".map_container").show()
 		$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
@@ -202,8 +233,24 @@ const skipper = () => {
 		$(document).off("keypress")
 		$(".quote_container").hide()
 		$(".map_container .map").css({"max-width": "14vw", "min-width": "14vw"})
-		$(".map_container").css({width: '14vw', height: '10.45vw', margin: "0.8vw", "top": "12.3vw", "left": "0"})
-	map_minimize_post()
-		// $(".map_container").addClass("map_container_min")
-		
+		$(".map_container").css({"width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"})
+	// map_minimize_post()
+		$(".map_container").addClass("map_container_min")
+		$(".map_container_min .map_label, .map_container_min .map_location").show()
+		$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.")
+		$(".quote_container").show()
+		$(".sign_post_container .sign_post_location").text("Welcome")
+		$(".sign_post_container .sign_post_next").text("About Me")
+		$(".sign_post_container").show()
+		$(".sign_post_container").css({"bottom": "0"})
+	// sign_post_fall_post()
+		$(".sign_post_container .sign_post_red_arrow").show()
+		$(".sign_post_container div").addClass("animate")
+		$(document).on("click", sign_post_blink_post)
+		$(document).on("keypress", sign_post_blink_post)
+	// sign_post_blink_post()
+		// $(document).off("click")
+		// $(document).off("keypress")
+		// $(".sign_post_container .sign_post_red_arrow").hide()
+	// dissolve_post_location_post()
 }

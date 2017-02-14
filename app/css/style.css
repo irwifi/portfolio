@@ -9,6 +9,31 @@
 	     src: url('../fonts/Iceland.ttf'); 
 	}
 
+	@keyframes blinker {  
+	  50% { opacity: 0; }
+	}
+
+	@keyframes grow {
+		0% { transform: scale(0); }
+		25% { transform: scale(0.25); }
+		50% { transform: scale(0.5); }
+		75% { transform: scale(0.75); }
+		100% { transform: scale(1); }
+	}
+	@keyframes pulse {
+		0% { transform: scale(0); }
+		10% { transform: scale(0.25); }
+		20% { transform: scale(0.5); }
+		30% { transform: scale(0.75); }
+		40% { transform: scale(1); }
+		50% { transform: scale(1.1); }
+		60% { transform: scale(1.2); }
+		70% { transform: scale(1.3); }
+		80% { transform: scale(1.2); }
+		90% { transform: scale(1.1); }
+		100% { transform: scale(1); }
+	}
+
 	* {
 		margin: 0 auto;
 		border: 0;
@@ -272,14 +297,14 @@
 /* quote_container >>> */
 	.quote_container {
 		background: url("../images/banner2.png") no-repeat;
-		background-size: 75vw 12.16vw;
+		background-size: 68.7vw 11.356vw;
 		position: absolute;
 		text-align: left;
 		font-weight: bold;
 		font-size: 1.6vw;
 		color: #FFF;
-		width: 62.1vw;
-		height: 8.1vw;
+		width: 56.1vw;
+		height: 7.4vw;
 		top: 0.2vw;
 		left: 15.2vw;
 		padding: 3vw 9.72vw 1vw 3vw;
@@ -650,22 +675,56 @@
 
 /* sign_post_container >>> */
 	.sign_post_container {
-		/*border: 0.28vw solid #222;*/
-		/*border-radius: 0.6vw;*/
-		margin: 0.8vw;
 		position: absolute;
 		text-align: center;
-		font-weight: bold;
-		font-size: 1.6vw;
-		color: #FFF;
-		top: 24vw;
-		left: 0;
-		width: 14.28vw;
-		height: 11.28vw; 
+		bottom: 90vh;
+		right: 0.4vw;
+		padding-top: 7.3vw;
+		padding-left: 12vw;
+		overflow: hidden;
 	}
 
-	.sign_post_container img {
-		/*width: 12vw;*/
-		height: 10.74vw;
+	.sign_post_container img.sign_post {
+		width: 14vw;
+		margin-bottom: -0.5vw;
+	}
+
+	.sign_post_container img.sign_post_red_arrow {
+		display: none;
+		position: absolute;
+		width: 14vw;
+		top:0;
+		left:0;
+		animation: blinker 0.3s linear 5;
+	}
+
+	.sign_post_container div {
+		font-family: Arial;
+		font-weight: bold;
+		color: #FFF;
+		position: absolute;
+		width: 12.4vw;
+		padding: 0 0.8vw;		
+	}
+
+	.sign_post_container .sign_post_location.animate {
+		animation-name: pulse;
+		animation-duration: 500ms;
+		transform-origin: 50% 50%;
+		animation-iteration-count: 1;
+		animation-timing-function: linear;		
+	}
+
+	.sign_post_container .sign_post_location {
+		font-size: 1.3vw;
+		height: 4vw;
+		top: 8.4vw;
+	}
+
+	.sign_post_container .sign_post_next {
+		text-align: left;
+		font-size: 0.74vw;
+		height: 2vw;
+		top: 13.2vw;
 	}
 /* <<< sign_post_container */
