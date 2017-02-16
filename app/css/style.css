@@ -9,6 +9,16 @@
 	     src: url('../fonts/Iceland.ttf'); 
 	}
 
+	@font-face {
+	     font-family: Rye;
+	     src: url('../fonts/Rye.ttf'); 
+	}
+
+	@font-face {
+	     font-family: NewRocker;
+	     src: url('../fonts/NewRocker.ttf'); 
+	}
+
 	@keyframes blinker {  
 	  50% { opacity: 0; }
 	}
@@ -313,6 +323,8 @@
 
 /* map_container >>> */
 	.map_container {
+		background: url("../images/map.png") no-repeat;
+		background-size:  51.7vw 38.6vw;
 		border: 0.32vw solid #222;
 		border-radius: 0.6vw;
 		width: 51.7vw;
@@ -324,358 +336,258 @@
 		left:24vw;
 	}
 
-	.map_container img {
-		position: absolute;
-		transition: all .2s ease-in-out;
-	}
-
-	.map_container .map_location:hover {
-		transform: scale(2);
-		cursor: pointer;
-	}
-
-	.map_container .map {
-		max-width: 51.7vw;
-		min-width: 51.7vw;
-	}
-
-	.map_container .map_zoom {
-		display: none;
-	}
-
-	.map_container_min .map_zoom {
-		display: block;
-		max-width: 2vw;
-		min-width: 2vw;
-		left:12.1vw;
-	}
-
-	.map_container .map_pointer {
-		max-width: 2vw;
-		min-width: 2vw;
-		top: 28.6vw;
-		left: 8.5vw;
-	}
-
-	.map_container_min .map_pointer {
-		max-width: 0.7vw;
-		min-width: 0.7vw;
-		top: 7.5vw;
-		left: 2.3vw;
-	}
-
-	.map_container .map_label {
-		background: url("../images/banner.png") no-repeat;
-		background-size: 14vw 2vw;
+	.map_container .map_location {
 		width: 14vw;
-		height: 2vw;
+		height: 1vw;
 		position: absolute;
 		text-align: center;
+		font-family: Arial;
 		font-size: 0.7vw;
 		font-weight: bold;
 		color: #ffff36;
-		padding-top: 1vw;
+		transition: all .2s ease-in-out;
 	}
 
-	.map_container_min .map_label {
-		background-size: 3.8vw 0.54vw;
+	.map_container_min .map_location {
 		width: 3.8vw;
-		height: 0.54vw;
+		height: 0.35vw;
 		font-size: 0.19vw;
-		padding-top: 0.27vw;
+	}
+
+	.map_container .map_location:hover {
+		transform: scale(1.5);
+		cursor: pointer;
 	}
 
 	.map_container .map_welcome {
-		max-width: 2vw;
-		min-width: 2vw;
-		top: 31.7vw;
-		left: 8.5vw;
-	}
-
-	.map_container_min .map_welcome {
-		max-width: 0.54vw;
-		min-width: 0.54vw;
-		top: 8.6vw;
-		left: 2.3vw;
-	}
-
-	.map_container .label_welcome {
-		top: 33.1vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/welcome.png) center top no-repeat;
+		background-size: 14vw 2vw, 3vw;
+		padding-top: 3.1vw;
+		top: 30.6vw;
 		left: 2.6vw;
 	}
 
-	.map_container_min .label_welcome {
-		top: 8.96vw;
+	.map_container_min .map_welcome {
+		background-size: 3.8vw 0.54vw, 0.54vw;
+		padding-top: 0.58vw;
+		top: 8.5vw;
 		left: 0.7vw;
 	}
 
 	.map_container .map_about_me {
-		max-width: 3.2vw;
-		min-width: 3.2vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/about_me.png) center top no-repeat;
+		background-size: 14vw 2vw,  3.2vw;
+		padding-top: 3.3vw;
 		top: 25.6vw;
-		left: 15.9vw;
-	}
-
-	.map_container_min .map_about_me {
-		max-width: 0.86vw;
-		min-width: 0.86vw;
-		top: 6.91vw;
-		left: 4.4vw;
-	}
-
-	.map_container .label_about_me {
-		top: 27.7vw;
 		left: 10.46vw;
 	}
 
-	.map_container_min .label_about_me {
-		top: 7.48vw;
+	.map_container_min .map_about_me {
+		background-size: 3.8vw 0.54vw, 0.86vw;
+		padding-top: 0.86vw;
+		top: 6.86vw;
 		left: 2.83vw;
 	}
 
 	.map_container .map_strength {
-		max-width: 3.8vw;
-		min-width: 3.8vw;
-		top: 28.2vw;
-		left: 30.6vw;
-	}
-
-	.map_container_min .map_strength {
-		max-width: 1.03vw;
-		min-width: 1.03vw;
-		top: 7.62vw;
-		left: 8.26vw;
-	}
-
-	.map_container .label_strength {
-		top: 32vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/strength.png) center top no-repeat;
+		background-size: 14vw 2vw,  4.3vw;
+		padding-top: 5.6vw;
+		top: 27.5vw;
 		left: 25.6vw;
 	}
 
-	.map_container_min .label_strength {
-		top: 8.64vw;
+	.map_container_min .map_strength {
+		background-size: 3.8vw 0.54vw, 1.03vw;
+		padding-top: 1.35vw;
+		top: 7.56vw;
 		left: 6.91vw;
 	}
 
 	.map_container .map_skills {
-		max-width: 2vw;
-		min-width: 2vw;
-		top: 28.3vw;
-		left: 44.8vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/skills.png) center top no-repeat;
+		background-size: 14vw 2vw,  2vw;
+		padding-top: 2.1vw;
+		top: 28.2vw;
+		left: 38.6vw;
 	}
 
 	.map_container_min .map_skills {
-		max-width: 0.54vw;
-		min-width: 0.54vw;
-		top: 7.64vw;
-		left: 12.1vw;
-	}
-	
-	.map_container .label_skills {
-		top: 29.6vw;
-		left: 38.4vw;
-	}
-
-	.map_container_min .label_skills {
-		top: 8.0vw;
-		left: 10.37vw;
+		background-size: 3.8vw 0.54vw, 0.54vw;
+		padding-top: 0.49vw;
+		top: 7.7vw;
+		left: 10.41vw;
 	}
 
 	.map_container .map_education {
-		max-width: 3.2vw;
-		min-width: 3.2vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/education.png) center top no-repeat;
+		background-size: 14vw 2vw,  3.2vw;
+		padding-top: 3.3vw;
 		top: 20.8vw;
-		left: 38.7vw;
-	}
-
-	.map_container_min .map_education {
-		max-width: 0.86vw;
-		min-width: 0.86vw;
-		top: 5.52vw;
-		left: 10.5vw;
-	}
-	
-	.map_container .label_education {
-		top: 22.9vw;
 		left: 33.3vw;
 	}
 
-	.map_container_min .label_education {
-		top: 6.18vw;
+	.map_container_min .map_education {
+		background-size: 3.8vw 0.54vw, 0.86vw;
+		padding-top: 0.82vw;
+		top: 5.6vw;
 		left: 9.0vw;
 	}
 
 	.map_container .map_experience {
-		max-width: 6vw;
-		min-width: 6vw;
-		top: 20.5vw;
-		left: 24.6vw;
-	}
-
-	.map_container_min .map_experience {
-		max-width: 1.62vw;
-		min-width: 1.62vw;
-		top: 5.54vw;
-		left: 6.65vw;
-	}
-	
-	.map_container .label_experience {
-		top: 25.3vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/experience.png) center top no-repeat;
+		background-size: 14vw 2vw, 7vw;
+		padding-top: 7.1vw;
+		top: 19.4vw;
 		left: 20.6vw;
 	}
 
-	.map_container_min .label_experience {
-		top: 6.83vw;
+	.map_container_min .map_experience {
+		background-size: 3.8vw 0.54vw, 1.62vw;
+		padding-top: 1.53vw;
+		top: 5.53vw;
 		left: 5.56vw;
 	}
 
 	.map_container .map_portfolio {
-		max-width: 4vw;
-		min-width: 4vw;
-		top: 17.8vw;
-		left: 17.9vw;
-	}
-
-	.map_container_min .map_portfolio {
-		max-width: 1.08vw;
-		min-width: 1.08vw;
-		top: 4.81vw;
-		left: 4.83vw;
-	}
-	
-	.map_container .label_portfolio {
-		top: 20.1vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/portfolio.png) center top no-repeat;
+		background-size: 14vw 2vw, 4vw;
+		padding-top: 3.6vw;
+		top: 17.9vw;
 		left: 13.08vw;
 	}
 
-	.map_container_min .label_portfolio {
-		top: 5.42vw;
-		left: 3.53vw;
+	.map_container_min .map_portfolio {
+		background-size: 3.8vw 0.54vw, 1.08vw;
+		padding-top: 0.8vw;
+		top: 4.8vw;
+		left: 3.5vw;
 	}
 
 	.map_container .map_interests {
-		max-width: 6vw;
-		min-width: 6vw;
-		top: 12.9vw;
-		left: 29.8vw;
-	}
-
-	.map_container_min .map_interests {
-		max-width: 1.62vw;
-		min-width: 1.62vw;
-		top: 3.48vw;
-		left: 8.05vw;
-	}
-	
-	.map_container .label_interests {
-		top: 15.6vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/interests.png) center top no-repeat;
+		background-size: 14vw 2vw, 6vw;
+		padding-top: 4.0vw;
+		top: 12.6vw;
 		left: 25.8vw;
 	}
 
-	.map_container_min .label_interests {
-		top: 4.21vw;
+	.map_container_min .map_interests {
+		background-size: 3.8vw 0.54vw, 1.62vw;
+		padding-top: 1.0vw;
+		top: 3.5vw;
 		left: 6.97vw;
 	}
 
 	.map_container .map_testimonial {
-		max-width: 3.2vw;
-		min-width: 3.2vw;
-		top: 10.2vw;
-		left: 42.4vw;
-	}
-
-	.map_container_min .map_testimonial {
-		max-width: 0.86vw;
-		min-width: 0.86vw;
-		top: 2.75vw;
-		left: 11.5vw;
-	}
-	
-	.map_container .label_testimonial {
-		top: 11.4vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/testimonial.png) center top no-repeat;
+		background-size: 14vw 2vw, 3.2vw;
+		padding-top: 2.3vw;
+		top: 10.0vw;
 		left: 36.9vw;
 	}
 
-	.map_container_min .label_testimonial {
-		top: 3.08vw;
+	.map_container_min .map_testimonial {
+		background-size: 3.8vw 0.54vw, 0.86vw;
+		padding-top: 0.5vw;
+		top: 2.75vw;
 		left: 9.96vw;
 	}
 
 	.map_container .map_address {
-		max-width: 1.4vw;
-		min-width: 1.4vw;
-		top: 5.5vw;
-		left: 33vw;
-	}
-
-	.map_container_min .map_address {
-		max-width: 0.38vw;
-		min-width: 0.38vw;
-		top: 1.49vw;
-		left: 8.91vw;
-	}
-	
-	.map_container .label_address {
-		top: 6.2vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/address.png) center top no-repeat;
+		background-size: 14vw 2vw, 1.4vw;
+		padding-top: 1.7vw;
+		top: 5.4vw;
 		left: 26.7vw;
 	}
 
-	.map_container_min .label_address {
-		top: 1.67vw;
+	.map_container_min .map_address {
+		background-size: 3.8vw 0.54vw, 0.38vw;
+		padding-top: 0.35vw;
+		top: 1.5vw;
 		left: 7.21vw;
 	}
-
+	
 	.map_container .map_resume {
-		max-width: 3.2vw;
-		min-width: 3.2vw;
-		top: 5.1vw;
-		left: 19.1vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/resume.png) center top no-repeat;
+		background-size: 14vw 2vw, 3.2vw;
+		padding-top: 3.3vw;
+		top: 4.9vw;
+		left: 13.8vw;
 	}
 
 	.map_container_min .map_resume {
-		max-width: 0.86vw;
-		min-width: 0.86vw;
-		top: 1.38vw;
-		left: 5.16vw;
-	}
-	
-	.map_container .label_resume {
-		top: 7.4vw;
-		left: 13.6vw;
-	}
-
-	.map_container_min .label_resume {
-		top: 2.0vw;
+		background-size: 3.8vw 0.54vw, 0.86vw;
+		padding-top: 0.77vw;
+		top: 1.4vw;
 		left: 3.67vw;
 	}
-
+	
 	.map_container .map_end {
-		max-width: 2vw;
-		min-width: 2vw;
-		top: 14.8vw;
-		left: 13.5vw;
+		background: url(../images/banner.png) center bottom no-repeat, url(../images/end.png) center top no-repeat;
+		background-size: 14vw 2vw, 2vw;
+		padding-top: 2.3vw;
+		top:14.8vw;
+		left: 7.6vw;
 	}
 
 	.map_container_min .map_end {
-		max-width: 0.54vw;
-		min-width: 0.54vw;
+		background-size: 3.8vw 0.54vw, 0.54vw;
+		padding-top: 0.53vw;
 		top: 4.0vw;
-		left: 3.65vw;
-	}
-	
-	.map_container .label_end {
-		top:16.2vw;
-		left: 7.6vw;
-	}
-	.map_container_min .label_end {
-		top: 4.37vw;
 		left: 2.05vw;
+	}
+
+	.map_container .map_pointer {
+		background: url(../images/pointer.png) no-repeat;
+		position: absolute;
+		background-size: 1.2vw;
+		width: 1.2vw;
+		height: 1.72vw;
+		top: 34.9vw;
+		left: 8.8vw;
+	}
+
+	.map_container_min .map_pointer {
+		background-size: 0.5vw;
+		width: 0.5vw;
+		height: 0.75vw;
+		top: 9.5vw;
+		left: 2.3vw;
+	}
+
+	.map_container .map_crosshair,
+	.map_container .map_zoom {
+		display: none;
+	}
+
+	.map_container_min .map_crosshair {
+		background: url(../images/crosshair.svg) no-repeat;
+		background-size: 10vw;
+		position: absolute;
+		display: block;
+		width: 2.4vw;
+		height: 2.4vw;
+		top: 7.5vw;
+		left:1.54vw;
+	}
+
+	.map_container_min .map_zoom {
+		background: url(../images/zoom.png) no-repeat;
+		background-size: 2vw;
+		position: absolute;
+		display: block;
+		width: 2vw;
+		height: 2vw;
+		top: 0;
+		left:12.1vw;
 	}
 /* <<< map_container */
 
 /* sign_post_container >>> */
 	.sign_post_container {
-		position: absolute;
+		position: fixed;
 		text-align: center;
 		bottom: 90vh;
 		right: 0.4vw;
@@ -728,3 +640,76 @@
 		top: 13.2vw;
 	}
 /* <<< sign_post_container */
+
+/* content_display_container >>> */
+	.content_display_container {
+
+	}
+
+	.content_display_container .content_subcontainer {
+		/*display: none;*/
+	}
+/* <<< content_display_container */
+
+/* About Me >>> */
+	.content_display_container .content_about_me {
+		background: url(../images/book.svg) center no-repeat;
+		background-size: 70vw 41vw;
+		width: 80vw;
+		height: 41.5vw;
+	}
+
+	.content_display_container .content_about_me: after {
+		clear: both;
+	}
+
+	.content_about_me .about_me_page {
+		margin-top: 2vw;
+		padding: 2vw;
+		width:23.4vw;
+		height: 32vw;
+	}
+
+	.content_about_me .coffee_stain {
+		position: absolute;
+		top:36.5vw;
+		left: 66vw;
+		width:12vw;
+	}
+
+	.content_about_me .left_page {
+		float: left;
+		text-align: left;
+		margin-left: 12vw;
+		font-family: NewRocker;
+		font-size:1vw;
+		line-height: 2.2vw;
+		color: #362921;
+	}
+
+	.content_about_me h1 {
+		background:  url(../images/title.png) center bottom no-repeat;
+		background-size: 12vw 1vw;
+		margin-bottom: 1.4vw;
+		font-family: Rye;
+		font-size:1.6vw;
+		font-weight: normal;
+		color: #362921;
+		height: 3vw;
+	}
+
+	.content_about_me .right_page {
+		float: right;
+		text-align: right;
+		margin-right: 11.4vw;
+	}
+
+	.content_about_me .photo {
+		background: url(../images/frame.png) center no-repeat, url(../images/photo.jpg) center no-repeat;
+		background-size: 19vw 22vw, 14vw;
+		filter: sepia(90%);
+		padding: 0.6vw;
+		width: 19vw;
+		height: 22vw;
+	}
+/* <<< About Me */
