@@ -7,6 +7,25 @@ let dev_mode = portrait_handle
 dev_mode = skipper_handle
 $(dev_mode)
 
+// Pending Tasks Class
+class Pending_task {
+	constructor() {
+		this.task_array = []
+	}
+
+	add_task(new_task) {
+		this.task_array.push(new_task)
+	}
+
+	execute_tasks() {
+		for(let task in this.task_array) {
+			this.task_array[task].call()
+		}
+	}
+}
+
+const pending_task = new Pending_task();
+
 // Checks for the portrait mode
 const check_portrait = () => {
 	// Remove the noscript block
@@ -53,8 +72,8 @@ const init = () => {
 		
 	// Make the avatar appear
 	$(".audio_avatar_intro")[0].play()
-	$(".avatar_container #avatar_img").animate({width: '21.8vw', height: '21.8vw'}, 800)
-	$(".avatar_container #avatar_img").fadeTo(1800, 1, avatar_intro_post)	
+	$(".avatar_container #avatar_img").animate({width: '21.8vw', height: '21.8vw'}, 500)
+	$(".avatar_container #avatar_img").fadeTo(700, 1, avatar_intro_post)	
 }
 
 // After fade in of avatar image
@@ -62,7 +81,7 @@ const avatar_intro_post = () => {
 	$(".audio_avatar_intro")[0].pause()
 	$(".avatar_container .intro_box").show()
 	$(".audio_intro_box_expand")[0].play()
-	$(".avatar_container .intro_box").animate({width: '36vw'}, 800, intro_box_post)
+	$(".avatar_container .intro_box").animate({width: '36vw'}, 400, intro_box_post)
 }
 
 // After expansion of intro box
@@ -84,37 +103,31 @@ const simulate_typing = (params) => {
 	if(char_pos >= type_str.length) {
 		simulate_typing_post()
 	} else {
-		setTimeout(simulate_typing, 130, {typing_obj, char_pos});
+		setTimeout(simulate_typing, 70, {typing_obj, char_pos});
 	}
-}
-
-// Function to convert viewport value into pixel
-function viewport_to_pixel( val ) {
-	const percent = val.match(/[\d.]+/)[0] / 100
-	const unit = val.match(/[vwh]+/)[0]
-	return (unit == 'vh' ? $(window).height() : $(window).width()) * percent +'px'
 }
 
 // After simulating the typing
 const simulate_typing_post = () => {
-	$(".audio_instruction_flyby")[0].play()
+	$(".audio_intro_type")[0].pause()
+	$(".audio_instruction_flyby1")[0].play()
 	const new_left = ($(".instruction_box").css("width").replace('px', '') - $(".instruction_msg").css("width").replace('px', '')) / 2
-	$(".instruction_box .instruction_msg1").animate({"margin-left": new_left}, 400, instruction_msg1_flyby_post)
+	$(".instruction_box .instruction_msg1").animate({"margin-left": new_left}, 200, instruction_msg1_flyby_post)
 }
 
 // After flying first instruction message
 const instruction_msg1_flyby_post = () => {
+	setTimeout(() => {$(".audio_instruction_flyby1")[0].pause()}, 400)
+	setTimeout(() => {$(".audio_instruction_flyby2")[0].play()}, 400)
 	$(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
-	setTimeout(() => {$(".audio_instruction_flyby")[0].play()}, 800)
 	const new_left = ($(".instruction_box").css("width").replace('px', '') - $(".instruction_msg").css("width").replace('px', '')) / 2
 	$(".instruction_box .instruction_msg2").css({"margin-top": "1.1vw"})
-	$(".instruction_box .instruction_msg2").delay(800).animate({"margin-left": new_left}, 400, instruction_msg2_flyby_post)
+	$(".instruction_box .instruction_msg2").delay(400).animate({"margin-left": new_left}, 200, instruction_msg2_flyby_post)
 }
 
 // After flying second instruction message
 const instruction_msg2_flyby_post = () => {
 	$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top": "1.1vw"})
-
 	$(document).on("click", intro_close)
 	$(document).on("keypress", intro_close)
 }
@@ -123,22 +136,22 @@ const instruction_msg2_flyby_post = () => {
 const intro_close = () => {
 	$(document).off("click")
 	$(document).off("keypress")
-	$(".avatar_intro").fadeTo(1200, 0, fading_avatar_intro_post)
+	$(".avatar_intro").fadeTo(400, 0, fading_avatar_intro_post)
 }
 
 // After fading out avatar intro
 const fading_avatar_intro_post = () => {
 	$(".avatar_intro").remove()
 	$(".avatar_container").css({background: "#FFF", "border": "0.32vw solid #222", "border-radius": "0.6vw", width:"27.36vw", height: "21.8vw","top": "5.7vw", "left": "36vw", "position":"absolute"})
-	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '10.45vw', height: '10.45vw'}, 800)
-	$(".avatar_container").animate({width: '14vw', height: '10.45vw', margin: "0.5vw 1.8vw", "top": "0", "left": "0"}, 800, avatar_minimize_post)
+	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '10.45vw', height: '10.45vw'}, 700)
+	$(".avatar_container").animate({width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"}, 700, avatar_minimize_post)
 }
 
 // After minimizing the avatar
 const avatar_minimize_post = () => {
-	$(".map_container").fadeIn(1200)
+	$(".map_container").show()
 	$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
-	$(".quote_container").show(1000)
+	$(".quote_container").show(600)
 
 	$(document).on("click", map_intro_close)
 	$(document).on("keypress", map_intro_close)
@@ -149,46 +162,68 @@ const map_intro_close = () => {
 	$(document).off("click")
 	$(document).off("keypress")	
 
-	$(".quote_container").hide(1000)
-	$(".map_container").animate({"width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"}, 800, map_minimize_post)
+	$(".quote_container").hide(600)
+	$(".map_container").animate({"width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"}, 600, map_minimize_post)
 }
 
 // After minimizing map
 const map_minimize_post = () => {
 	$(".map_container").css({"background-size":  "14vw 10.45vw"}).addClass("map_container_min")
 	$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.")
-	$(".quote_container").show(1000)
+	$(".quote_container").show(600)
 	$(".sign_post_container .sign_post_location").text("Welcome")
 	$(".sign_post_container .sign_post_next").text("About Me")
 	$(".sign_post_container").show()
-	$(".sign_post_container").animate({"bottom": "0"},1200, sign_post_fall_post)
+	$(".sign_post_container").animate({"bottom": "0"},800, sign_post_fall_post)
 }
 
 // After falling of sign post
 const sign_post_fall_post = () => {
 	$(".sign_post_container .sign_post_red_arrow").show()
 	$(".sign_post_container div").addClass("animate")
-
+	pending_task.add_task(sign_post_red_arrow_remove)
 	$(document).on("click", sign_post_blink_post)
 	$(document).on("keypress", sign_post_blink_post)
+
+	$(".sign_post_next_hover").on("click", sign_post_next_click)
+}
+
+// Remove the sign_post_red_arrow
+const sign_post_red_arrow_remove = () => {
+	$(".sign_post_container .sign_post_red_arrow").hide(300)
+}
+
+// Functionality of on click event for next arrow of the sign post
+const sign_post_next_click = () => {
+	pending_task.execute_tasks()
+	about_me_init()
+}
+
+// About Me Initialization
+const about_me_init = () => {
+	$(document).off("click")
+	$(document).off("keypress")
+	$(".quote_container").hide(600)
+	$(".sign_post_container div").animate({"opacity": "1"},600).hide()
+	$(".quote_container").text("This is how I look.").show(600)
+	$(".sign_post_container .sign_post_next").text("My Strength")
+	$(".sign_post_container .sign_post_location").text("About Me")
+	$(".sign_post_container div").show()
+	$(".content_display_container").show()
+	$(".content_display_container .content_about_me").show()
 }
 
 // After blinking the red arrow
 const sign_post_blink_post = () => {
 	$(document).off("click")
 	$(document).off("keypress")
-	$(".sign_post_container div").animate({"opacity":"0"}, 800)
-	$(".sign_post_container .sign_post_red_arrow").hide(800, dissolve_post_location_post)
+	$(".sign_post_container div").animate({"opacity":"0"}, 600)
+	$(".sign_post_container .sign_post_red_arrow").hide(400, dissolve_post_location_post)
 }
 
 // After hiding the text of the sign post
 const dissolve_post_location_post = () => {
-	$(".quote_container").hide(600)
-	$(".quote_container").text("This is how I look.").show(600)
-	$(".sign_post_container div").css({"opacity": "1"}).hide()
-	$(".sign_post_container .sign_post_next").text("My Strength").show()
-	$(".sign_post_container .sign_post_location").text("About Me").show()
-	$(".content_display_container").show()
+	about_me_init()
 }
 
 // Skipper function to skip through the steps
@@ -202,52 +237,55 @@ const skipper = () => {
 		$(".not_ready").remove()
 		$(".avatar_container #avatar_img").css({width: '21.8vw', height: '21.8vw', opacity: 1})
 	// avatar_intro_post()
-		// $(".avatar_container .intro_box").show()
-		// $(".avatar_container .intro_box").css({width: '36vw'})
+		$(".avatar_container .intro_box").show()
+		$(".avatar_container .intro_box").css({width: '36vw'})
 	// intro_box_post()
-		// $(".intro_box").text($(".intro_box").data("text"))
 	// simulate_typing_post()
-		// $(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
+		$(".intro_box").text($(".intro_box").data("text"))
+		$(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
 	// instruction_msg1_flyby_post()
-		// $(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
+		$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
 	// instruction_msg2_flyby_post()
-		// $(document).on("click", intro_close)
-		// $(document).on("keypress", intro_close)
+		$(document).on("click", intro_close)
+		$(document).on("keypress", intro_close)
 	// intro_close()
-		// $(document).off("click")
-		// $(document).off("keypress")
-		// $(".avatar_intro").remove()
+		$(document).off("click")
+		$(document).off("keypress")
+		$(".avatar_intro").remove()
 	// fading_avatar_intro_post()
 		$(".avatar_container #avatar_img").css({"margin-top":"0", width: '10.45vw', height: '10.45vw'})
 		$(".avatar_container").css({background: "#FFF", "border": "0.28vw solid #222", "border-radius": "0.6vw", width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw"})
 	// avatar_minimize_post()
+		$(document).on("click", map_intro_close)
+		$(document).on("keypress", map_intro_close)
 		$(".map_container").show()
-		// $(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
-		// $(".quote_container").show()
-		// $(document).on("click", map_intro_close)
-		// $(document).on("keypress", map_intro_close)
+		$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.").show()
 	// map_intro_close()
-		// $(document).off("click")
-		// $(document).off("keypress")
-		// $(".quote_container").hide()
+		$(document).off("click")
+		$(document).off("keypress")
+		$(".quote_container").hide()
 		$(".map_container .map").css({"max-width": "14vw", "min-width": "14vw"})
 		$(".map_container").css({"width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"})
 	// map_minimize_post()
 		$(".map_container").css({"background-size":  "14vw 10.45vw"}).addClass("map_container_min")
-		// $(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.")
-		// $(".quote_container").show()
-		// $(".sign_post_container .sign_post_location").text("Welcome")
-		// $(".sign_post_container .sign_post_next").text("About Me")
+		$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.").show()
+		$(".sign_post_container .sign_post_location").text("Welcome")
+		$(".sign_post_container .sign_post_next").text("About Me")
 		$(".sign_post_container").show()
 		$(".sign_post_container").css({"bottom": "0"})
-	// sign_post_fall_post()
-		// $(".sign_post_container .sign_post_red_arrow").show()
-		$(".sign_post_container div").addClass("animate")
-		// $(document).on("click", sign_post_blink_post)
-		// $(document).on("keypress", sign_post_blink_post)
-	// sign_post_blink_post()
-		// $(document).off("click")
-		// $(document).off("keypress")
-		// $(".sign_post_container .sign_post_red_arrow").hide()
-	dissolve_post_location_post()
+	sign_post_fall_post()
+	// 	$(".sign_post_container .sign_post_red_arrow").show()
+	// 	$(".sign_post_container div").addClass("animate")
+	// 	$(document).on("click", sign_post_blink_post)
+	// 	$(document).on("keypress", sign_post_blink_post)
+	// // sign_post_blink_post()
+	// 	$(document).off("click")
+	// 	$(document).off("keypress")
+	// 	$(".sign_post_container .sign_post_red_arrow").hide()
+	// // dissolve_post_location_post()
+	// 	$(".quote_container").text("This is how I look.")
+	// 	$(".sign_post_container .sign_post_next").text("My Strength")
+	// 	$(".sign_post_container .sign_post_location").text("About Me")
+	// 	$(".content_display_container").show()
+	// 	$(".content_display_container .content_about_me").show()
 }

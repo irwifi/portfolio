@@ -1,4 +1,4 @@
-/* Root >>> */
+ /* Root >>> */
 	@font-face {
 	     font-family: Audiowide;
 	     src: url('../fonts/Audiowide.ttf'); 
@@ -20,27 +20,39 @@
 	}
 
 	@keyframes blinker {  
-	  50% { opacity: 0; }
+		50% { opacity: 0; }
 	}
 
 	@keyframes grow {
 		0% { transform: scale(0); }
-		25% { transform: scale(0.25); }
-		50% { transform: scale(0.5); }
-		75% { transform: scale(0.75); }
 		100% { transform: scale(1); }
 	}
+
+	@keyframes lean {
+		0% {
+			transform: translate3d(0, 0, 0);
+			animation-timing-function: ease-out;
+		}
+		50% {
+			transform: translate3d(-1.4vw, 0px, 0);
+			animation-timing-function: ease-in;
+		}
+		100% {
+			transform: translate3d(0, 0px, 0);
+		}
+	}
+
 	@keyframes pulse {
 		0% { transform: scale(0); }
-		10% { transform: scale(0.25); }
-		20% { transform: scale(0.5); }
-		30% { transform: scale(0.75); }
+		/*10% { transform: scale(0.25); }*/
+		/*20% { transform: scale(0.5); }*/
+		/*30% { transform: scale(0.75); }*/
 		40% { transform: scale(1); }
-		50% { transform: scale(1.1); }
-		60% { transform: scale(1.2); }
+		/*50% { transform: scale(1.1); }*/
+		/*60% { transform: scale(1.2); }*/
 		70% { transform: scale(1.3); }
-		80% { transform: scale(1.2); }
-		90% { transform: scale(1.1); }
+		/*80% { transform: scale(1.2); }*/
+		/*90% { transform: scale(1.1); }*/
 		100% { transform: scale(1); }
 	}
 
@@ -334,6 +346,8 @@
 		overflow: hidden;
 		top:13.3vw;
 		left:24vw;
+		animation: grow 400ms linear 1;
+		transform-origin: 50% 30%;		
 	}
 
 	.map_container .map_location {
@@ -345,7 +359,7 @@
 		font-size: 0.7vw;
 		font-weight: bold;
 		color: #ffff36;
-		transition: all .2s ease-in-out;
+		transition: transform .2s ease-in-out;
 	}
 
 	.map_container_min .map_location {
@@ -607,7 +621,7 @@
 		width: 14vw;
 		top:0;
 		left:0;
-		animation: blinker 0.3s linear 5;
+		animation: blinker 300ms linear 2;
 	}
 
 	.sign_post_container div {
@@ -621,10 +635,10 @@
 
 	.sign_post_container .sign_post_location.animate {
 		animation-name: pulse;
-		animation-duration: 500ms;
+		animation-duration: 400ms;
 		transform-origin: 50% 50%;
 		animation-iteration-count: 1;
-		animation-timing-function: linear;		
+		animation-timing-function: linear;
 	}
 
 	.sign_post_container .sign_post_location {
@@ -636,18 +650,39 @@
 	.sign_post_container .sign_post_next {
 		text-align: left;
 		font-size: 0.74vw;
+		line-height: 2vw;
 		height: 2vw;
-		top: 13.2vw;
+		top: 12.6vw;
+	}
+
+	.sign_post_container .sign_post_next_hover {
+		background: url(../images/white_arrow.png) right no-repeat;
+		background-size: 3vw;
+		cursor: pointer;
+		height: 2vw;
+		width:11.55vw;
+		top: 12.66vw;
+		left: 12.45vw;
+		transition: transform ease-in-out 200ms;
+	}
+
+	.sign_post_container .sign_post_next_hover:hover {
+		background: url(../images/yellow_arrow.png) right no-repeat;
+		background-size: 3vw;
+		animation: lean 1.0s linear infinite;
 	}
 /* <<< sign_post_container */
 
 /* content_display_container >>> */
 	.content_display_container {
-
+		position: absolute;
+		top: 12.2vw;
+		left: 0;
+		height: 41.5vw;
 	}
 
 	.content_display_container .content_subcontainer {
-		/*display: none;*/
+		display: none;
 	}
 /* <<< content_display_container */
 
@@ -657,6 +692,9 @@
 		background-size: 70vw 41vw;
 		width: 80vw;
 		height: 41.5vw;
+		margin: 0 10vw;
+		animation: grow 0.6s linear 1;
+		transform-origin: 50% 30%;
 	}
 
 	.content_display_container .content_about_me: after {
@@ -671,20 +709,28 @@
 	}
 
 	.content_about_me .coffee_stain {
+		background: url(../images/coffee_stain.svg) center no-repeat;
+		background-size: 12vw;
 		position: absolute;
-		top:36.5vw;
-		left: 66vw;
-		width:12vw;
+		top: 20vw;
+		left: 17vw;
+		width: 12vw;
+		height: 12vw;
 	}
 
 	.content_about_me .left_page {
 		float: left;
-		text-align: left;
-		margin-left: 12vw;
-		font-family: NewRocker;
-		font-size:1vw;
-		line-height: 2.2vw;
+		text-align: justify;
+		margin-left: 11.4vw;
 		color: #362921;
+	}
+
+	.content_about_me .left_page p {
+		font-family: NewRocker;
+		font-size:0.9vw;
+		line-height: 1.2vw;
+		text-align: justify;
+		margin-top: 2vw;
 	}
 
 	.content_about_me h1 {
@@ -702,6 +748,7 @@
 		float: right;
 		text-align: right;
 		margin-right: 11.4vw;
+		position: relative;
 	}
 
 	.content_about_me .photo {

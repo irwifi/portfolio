@@ -19,11 +19,6 @@
 		<g id="g4">
 			<rect fill="#13753C" stroke="#13753C" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="30" ry="30" y="460" x="30" height="190" width="1160" id="rect4_1"/>
 			<rect fill="#13753C" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" rx="23" ry="23" y="468" x="38" height="174" width="1144" id="rect4_2" />
-
-			<g id="g5">
-				<rect fill="white" stroke="white" stroke-width="0" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="4" rx="4" ry="4" y="530" x="940" height="50" width="180" id="rect5_1"/>
-				<polygon points="1080 510, 1080 600, 1160 555" style="fill: white"  id="polygon5_1" />
-			</g>
 		</g>
 	</g>
 </svg>
