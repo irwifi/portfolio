@@ -27,36 +27,14 @@
 
 	<div class="yesscript">
 		<div id="detect_ie">
-			<!-- This site is not compatible with IE 
-			because many of new features of JS is not workable in IE (not even in IE 11) -->
+			<!-- This site is not compatible with this browser
+			because many of new features of JS is not workable in this browser -->
+			<div class="ie_msg">
+				<div class="ie_msg1">This site is not compatible with this version of your browser.</div>
+				<div class="ie_msg2">Please use Firefox, Chrome or Edge to open this site</div>
+				<div class="ie_msg3">Best viewed in <span class="browser_highlight_green">Mozilla Firefox</span></div>
+			</div>
 		</div>
-
-		<script class="ie_block_script">
-			// Checks if the browser is IE or not
-			function detect_ie() {
-				var user_agent = window.navigator.userAgent
-
-				// MSIE for IE 10 or older and Trident for IE 11
-				if (user_agent.indexOf('MSIE ') > -1 || user_agent.indexOf('Trident/') > -1) {
-					return true;
-				} else {
-					// other browser
-					return false;
-				}
-			}
-
-			// Block Internet Explorer
-			var ie_browser = detect_ie();
-			if(ie_browser === true) {
-				document.getElementById("detect_ie").innerHTML = '\
-					<div class="ie_msg">\
-						<div class="ie_msg1">This site is not compatible with <span class="browser_highlight_red">Internet Explorer</span></div>\
-						<div class="ie_msg2">Please use Firefox, Chrome or Edge to open this site</div>\
-						<div class="ie_msg3">Best viewed in <span class="browser_highlight_green">Mozilla Firefox</span></div>\
-					</div>\
-				'
-			}
-		</script>
 
 		<div id="detect_portrait" class="modal">
 			<!-- If Portrait mode is detected display message to view in Landscape mode for better user experience. -->
@@ -81,8 +59,19 @@
 
 		<div class="i_am_ready">
 			<div class="main_display">
+				<div class="click_press_touch"></div>
+
 				<div class="avatar_container container_block">
 					<img src="images/avatar.svg" id="avatar_img" />
+					<div class="stage">
+						<div class="spinner">
+							<img src="images/avatar.svg" class="avatar_img_spin avatar_img_spin1" />
+							<img src="images/avatar.svg" class="avatar_img_spin avatar_img_spin2" />
+							<img src="images/avatar.svg" class="avatar_img_spin avatar_img_spin3" />
+							<img src="images/avatar.svg" class="avatar_img_spin avatar_img_spin4" />
+							<img src="images/avatar.svg" class="avatar_img_spin avatar_img_spin5" />
+						</div>
+					</div>
 
 					<div class="avatar_intro">
 						<audio class="audio_avatar_intro" src="media/avatar_intro.mp3" preload="auto"></audio>
@@ -148,8 +137,7 @@
 					<div class="sign_post_next_hover"></div>
 				</div>
 
-				<div class="list_container container_block">
-				</div>
+				<div class="list_container container_block"></div>
 			</div>
 			
 			<script src = "js/jquery-3.1.1.min.js"></script>

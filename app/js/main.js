@@ -33,7 +33,6 @@ const check_portrait = () => {
 
 	// Remove IE block script and messages
 	$("#detect_ie").remove()
-	$(".ie_block_script").remove()
 
 	// Checks if the browser is in Portrait mode
 	if(window.innerHeight > window.innerWidth) {
@@ -73,7 +72,7 @@ const init = () => {
 	// Make the avatar appear
 	$(".audio_avatar_intro")[0].play()
 	$(".avatar_container #avatar_img").animate({width: '21.8vw', height: '21.8vw'}, 500)
-	$(".avatar_container #avatar_img").fadeTo(700, 1, avatar_intro_post)	
+	$(".avatar_container #avatar_img").fadeTo(700, 1, avatar_intro_post)
 }
 
 // After fade in of avatar image
@@ -128,6 +127,7 @@ const instruction_msg1_flyby_post = () => {
 // After flying second instruction message
 const instruction_msg2_flyby_post = () => {
 	$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top": "1.1vw"})
+	$(".click_press_touch").css({"top": "37vw", "left": "72vw"}).show(200)
 	$(document).on("click", intro_close)
 	$(document).on("keypress", intro_close)
 }
@@ -136,26 +136,36 @@ const instruction_msg2_flyby_post = () => {
 const intro_close = () => {
 	$(document).off("click")
 	$(document).off("keypress")
+	$(".click_press_touch").hide()
 	$(".avatar_intro").fadeTo(400, 0, fading_avatar_intro_post)
 }
 
 // After fading out avatar intro
 const fading_avatar_intro_post = () => {
 	$(".avatar_intro").remove()
-	$(".avatar_container").css({background: "#FFF", "border": "0.32vw solid #222", "border-radius": "0.6vw", width:"27.36vw", height: "21.8vw","top": "5.7vw", "left": "36vw", "position":"absolute"})
+	$(".avatar_container").css({width:"27.36vw", height: "21.8vw","top": "5.7vw", "left": "36vw", "position":"absolute"})
 	$(".avatar_container #avatar_img").css({"margin-top":"0"}).animate({width: '10.45vw', height: '10.45vw'}, 700)
-	$(".avatar_container").animate({width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"}, 700, avatar_minimize_post)
+	$(".avatar_container").animate({width: '16.5vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"}, 700, avatar_minimize_post)
 }
 
 // After minimizing the avatar
 const avatar_minimize_post = () => {
+	$(".avatar_container #avatar_img").hide()
+	$(".avatar_container").addClass("avatar_container_min")
 	$(".map_container").show()
 	$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.")
 	$(".quote_container").show(600)
-
 	$(document).on("click", map_intro_close)
 	$(document).on("keypress", map_intro_close)
+	// $(".map_container").on("click", map_maximize)
 }
+
+// Maximizing the map
+/*const map_maximize = () => {
+	$(document).off("click")
+	$(document).off("keypress")
+	// $(".map_container").addClass("modal")
+}*/
 
 // Click and Keypress event listener for map intro closing
 const map_intro_close = () => {
@@ -184,7 +194,6 @@ const sign_post_fall_post = () => {
 	pending_task.add_task(sign_post_red_arrow_remove)
 	$(document).on("click", sign_post_blink_post)
 	$(document).on("keypress", sign_post_blink_post)
-
 	$(".sign_post_next_hover").on("click", sign_post_next_click)
 }
 
@@ -246,20 +255,24 @@ const skipper = () => {
 	// instruction_msg1_flyby_post()
 		$(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
 	// instruction_msg2_flyby_post()
+		$(".click_press_touch").css({"top": "37vw", "left": "72vw"}).show()
 		$(document).on("click", intro_close)
 		$(document).on("keypress", intro_close)
 	// intro_close()
+		$(".click_press_touch").hide()
 		$(document).off("click")
 		$(document).off("keypress")
-		$(".avatar_intro").remove()
 	// fading_avatar_intro_post()
+		$(".avatar_intro").remove()
 		$(".avatar_container #avatar_img").css({"margin-top":"0", width: '10.45vw', height: '10.45vw'})
-		$(".avatar_container").css({background: "#FFF", "border": "0.28vw solid #222", "border-radius": "0.6vw", width: '14vw', height: '10.45vw', margin: "0.5vw 0.8vw"})
+		$(".avatar_container").css({width: '16.5vw', height: '10.45vw', margin: "0.5vw 0.8vw"})
 	// avatar_minimize_post()
-		$(document).on("click", map_intro_close)
-		$(document).on("keypress", map_intro_close)
+		$(".avatar_container #avatar_img").hide()
+		$(".avatar_container").addClass("avatar_container_min")
 		$(".map_container").show()
 		$(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.").show()
+		$(document).on("click", map_intro_close)
+		$(document).on("keypress", map_intro_close)
 	// map_intro_close()
 		$(document).off("click")
 		$(document).off("keypress")
@@ -273,19 +286,19 @@ const skipper = () => {
 		$(".sign_post_container .sign_post_next").text("About Me")
 		$(".sign_post_container").show()
 		$(".sign_post_container").css({"bottom": "0"})
-	sign_post_fall_post()
-	// 	$(".sign_post_container .sign_post_red_arrow").show()
-	// 	$(".sign_post_container div").addClass("animate")
-	// 	$(document).on("click", sign_post_blink_post)
-	// 	$(document).on("keypress", sign_post_blink_post)
-	// // sign_post_blink_post()
-	// 	$(document).off("click")
-	// 	$(document).off("keypress")
-	// 	$(".sign_post_container .sign_post_red_arrow").hide()
-	// // dissolve_post_location_post()
-	// 	$(".quote_container").text("This is how I look.")
-	// 	$(".sign_post_container .sign_post_next").text("My Strength")
-	// 	$(".sign_post_container .sign_post_location").text("About Me")
-	// 	$(".content_display_container").show()
-	// 	$(".content_display_container .content_about_me").show()
+	// sign_post_fall_post()
+		$(".sign_post_container .sign_post_red_arrow").show()
+		$(".sign_post_container div").addClass("animate")
+		$(document).on("click", sign_post_blink_post)
+		$(document).on("keypress", sign_post_blink_post)
+	// sign_post_blink_post()
+		$(document).off("click")
+		$(document).off("keypress")
+		$(".sign_post_container .sign_post_red_arrow").hide()
+	// dissolve_post_location_post()
+		$(".quote_container").text("This is how I look.")
+		$(".sign_post_container .sign_post_next").text("My Strength")
+		$(".sign_post_container .sign_post_location").text("About Me")
+		$(".content_display_container").show()
+		$(".content_display_container .content_about_me").show()
 }

@@ -1,4 +1,4 @@
- /* Root >>> */
+/* Root >>> */
 	@font-face {
 	     font-family: Audiowide;
 	     src: url('../fonts/Audiowide.ttf'); 
@@ -23,6 +23,13 @@
 		50% { opacity: 0; }
 	}
 
+	@keyframes pulse {
+		0% { transform: scale(0); }
+		40% { transform: scale(1); }
+		70% { transform: scale(1.3); }
+		100% { transform: scale(1); }
+	}
+
 	@keyframes grow {
 		0% { transform: scale(0); }
 		100% { transform: scale(1); }
@@ -34,26 +41,65 @@
 			animation-timing-function: ease-out;
 		}
 		50% {
-			transform: translate3d(-1.4vw, 0px, 0);
+			transform: translate3d(-1.4vw, 0, 0);
 			animation-timing-function: ease-in;
 		}
 		100% {
-			transform: translate3d(0, 0px, 0);
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
-	@keyframes pulse {
-		0% { transform: scale(0); }
-		/*10% { transform: scale(0.25); }*/
-		/*20% { transform: scale(0.5); }*/
-		/*30% { transform: scale(0.75); }*/
-		40% { transform: scale(1); }
-		/*50% { transform: scale(1.1); }*/
-		/*60% { transform: scale(1.2); }*/
-		70% { transform: scale(1.3); }
-		/*80% { transform: scale(1.2); }*/
-		/*90% { transform: scale(1.1); }*/
-		100% { transform: scale(1); }
+	@keyframes spin {
+		40% {
+			transform: rotate3d(0, 1, 0, 360deg);
+			animation-timing-function: ease-in-out;
+		}
+		100% {
+			transform: rotate3d(0, 1, 0, 360deg);
+			animation-timing-function: ease-in-out;
+		}
+	}
+
+	@keyframes shake {
+		5%, 25% {
+			transform: translate3d(-0.3vw, 0.3vw, 0);
+			animation-timing-function: ease-in-out;
+		}
+		10%, 30% {
+			transform: translate3d(0.3vw, -0.3vw, 0);
+			animation-timing-function: ease-in-out;
+		}
+		15% {
+			transform: translate3d(-0.6vw, 0.6vw, 0);
+			animation-timing-function: ease-in-out;
+		}
+		20% {
+			transform: translate3d(0.6vw, -0.6vw, 0);
+			animation-timing-function: ease-in-out;
+		}
+		35% {
+			transform: translate3d(0, 0, 0);
+			animation-timing-function: ease-in-out;
+		}
+	}
+
+	@keyframes bounce {
+		0% {
+			transform: translate3d(0, 0, 0);
+			animation-timing-function: ease-in;
+		}
+		50% {
+			transform: translate3d(0, 1.2vw, 0);
+			animation-timing-function: ease-out;
+		}
+		100% {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	@keyframes spinner {
+		from {transform: rotateY(0deg);}
+		to   {transform: rotateY(-360deg);}
 	}
 
 	* {
@@ -119,6 +165,7 @@
 		height: inherit;
 		width: inherit;
 		background: #00bff3;
+		animation: grow 6s linear 1;
 	}
 
 	#detect_ie .ie_msg {
@@ -128,12 +175,6 @@
 		font-family: Audiowide;
 		font-weight: bold;
 		font-size: 2vw;
-	}
-
-	#detect_ie .browser_highlight_red {
-		font-size: 3.4vw;
-		color: #bd0000;
-		text-shadow: 1px 1px 2px #00bff3, 0 0 25px blue, 0 0 5px darkblue;
 	}
 
 	#detect_ie .browser_highlight_green {
@@ -270,6 +311,17 @@
 	.container_block {
 		display: none;
 	}
+
+	.main_display .click_press_touch {
+		display: none;
+		position: absolute;
+		background: url(../images/cpt.png) center no-repeat;
+		background-size: 10vw;
+		height: 10vw;
+		width: 12vw;
+		opacity: 0.7;
+		animation: shake 2s infinite linear;
+	}
 /* <<< i_am_ready */
 
 /* avatar_container >>> */
@@ -277,14 +329,67 @@
 		display: block;
 	}
 
-	#avatar_img {
+	.avatar_container #avatar_img {
 		width:0.01vw;
 		height: 0.01vw;
 		margin-top: 6vw;
 		opacity: 0.4;
 	}
 
-	.intro_box {
+	.avatar_container .stage {
+		display: none;
+	}
+
+	.avatar_container_min .stage {
+		display: block;
+		position: relative;
+		top: 2.3vw;
+		margin: 0.8vw auto;
+		width: 9.05vw;
+		height: 6.95vw;
+		perspective: 30vw;
+	}
+
+	.stage .spinner {
+		text-align: left;
+		animation: spinner linear 20s infinite;
+		transform-style: preserve-3d;
+	}
+
+	 .stage .spinner:hover {
+		animation-play-state: paused;
+	  }
+
+	.stage .avatar_img_spin {
+		position: absolute;
+		border: 0.2vw solid #ccc;
+		background: rgba(255,255,255,0.8);
+		box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+		width: 6.3vw;
+		padding: 0 1.2vw;
+	}
+
+	.stage .avatar_img_spin1 {
+		transform: rotateY(0deg) translateZ(6.5vw);
+	}
+
+	.stage .avatar_img_spin2 {
+		transform: rotateY(-72deg) translateZ(6.5vw);
+	}
+
+	.stage .avatar_img_spin3 {
+		transform: rotateY(-144deg) translateZ(6.5vw);
+	}
+
+	.stage .avatar_img_spin4 {
+		transform: rotateY(-216deg) translateZ(6.5vw);
+	}
+
+	.stage .avatar_img_spin5 {
+		transform: rotateY(-288deg) translateZ(6.5vw);
+	}
+
+	.avatar_container .intro_box {
 		margin: 0 auto;
 		border-radius: 0.2vw;
 		margin-top: 0.3vw;
@@ -297,7 +402,7 @@
 		font-family: Audiowide;
 	}
 
-	.instruction_box {
+	.avatar_container .instruction_box {
 		margin-top: 2.3vw;
 	}
 
@@ -314,21 +419,26 @@
 		margin-left: -82vw;
 		color: #0077f3
 	}
+
+	.instruction_box .instruction_msg2 {
+		animation: spin 2s linear infinite;
+		animation-delay: 1s;
+	}
 /* <<< avatar_container */
 
 /* quote_container >>> */
 	.quote_container {
 		background: url("../images/banner2.png") no-repeat;
-		background-size: 68.7vw 11.356vw;
+		background-size: 67vw 11.356vw;
 		position: absolute;
 		text-align: left;
 		font-weight: bold;
 		font-size: 1.6vw;
 		color: #FFF;
-		width: 56.1vw;
+		width: 54.1vw;
 		height: 7.4vw;
 		top: 0.2vw;
-		left: 15.2vw;
+		left: 17.2vw;
 		padding: 3vw 9.72vw 1vw 3vw;
 	}
 /* <<< quote_container */
@@ -366,11 +476,11 @@
 		width: 3.8vw;
 		height: 0.35vw;
 		font-size: 0.19vw;
+		cursor: pointer;
 	}
 
 	.map_container .map_location:hover {
 		transform: scale(1.5);
-		cursor: pointer;
 	}
 
 	.map_container .map_welcome {
@@ -559,16 +669,13 @@
 		background-size: 1.2vw;
 		width: 1.2vw;
 		height: 1.72vw;
-		top: 34.9vw;
-		left: 8.8vw;
+		top: 27.4vw;
+		left: 9vw;
+		animation: bounce 400ms linear infinite;
 	}
 
 	.map_container_min .map_pointer {
-		background-size: 0.5vw;
-		width: 0.5vw;
-		height: 0.75vw;
-		top: 9.5vw;
-		left: 2.3vw;
+		display: none;
 	}
 
 	.map_container .map_crosshair,
@@ -585,6 +692,7 @@
 		height: 2.4vw;
 		top: 7.5vw;
 		left:1.54vw;
+		animation: grow 400ms linear infinite;
 	}
 
 	.map_container_min .map_zoom {
@@ -596,6 +704,20 @@
 		height: 2vw;
 		top: 0;
 		left:12.1vw;
+		cursor: pointer;
+		opacity: 0.7;
+		animation: spin 2s linear infinite;
+	}
+
+	.map_container_min:hover .map_zoom {
+		animation: 0;
+		margin-top: 0.4vw;
+		margin-left: -0.4vw;
+		transform: scale3d(2, 2, 2);
+	}
+
+	.map_container_min .map_zoom:hover {
+		opacity: 1;
 	}
 /* <<< map_container */
 
