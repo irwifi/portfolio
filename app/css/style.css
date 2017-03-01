@@ -1,26 +1,31 @@
 /* Root >>> */
 	@font-face {
 	     font-family: Audiowide;
-	     src: url('../fonts/Audiowide.ttf'); 
+	     src: url('../fonts/Audiowide.ttf');
 	}
 
 	@font-face {
 	     font-family: Iceland;
-	     src: url('../fonts/Iceland.ttf'); 
+	     src: url('../fonts/Iceland.ttf');
 	}
 
 	@font-face {
 	     font-family: Rye;
-	     src: url('../fonts/Rye.ttf'); 
+	     src: url('../fonts/Rye.ttf');
 	}
 
 	@font-face {
 	     font-family: NewRocker;
-	     src: url('../fonts/NewRocker.ttf'); 
+	     src: url('../fonts/NewRocker.ttf');
 	}
 
-	@keyframes blinker {  
+	@keyframes blinker {
 		50% { opacity: 0; }
+	}
+
+	@keyframes appear {
+		0% {opacity: 0;}
+		100% {opacity: 1;}
 	}
 
 	@keyframes pulse {
@@ -231,7 +236,7 @@
 
 	/* Add Animation */
 	@-webkit-keyframes animatetop {
-	    from {top:-300px; opacity:0} 
+	    from {top:-300px; opacity:0}
 	    to {top:0; opacity:1}
 	}
 
@@ -480,6 +485,7 @@
 		font-size: 0.7vw;
 		font-weight: bold;
 		color: #ffff36;
+		cursor: pointer;
 		transition: transform .2s ease-in-out;
 	}
 
@@ -487,7 +493,6 @@
 		width: 3.8vw;
 		height: 0.35vw;
 		font-size: 0.19vw;
-		cursor: pointer;
 	}
 
 	.map_container .map_location:hover {
@@ -643,7 +648,7 @@
 		top: 1.5vw;
 		left: 7.21vw;
 	}
-	
+
 	.map_container .map_resume {
 		background: url(../images/banner.png) center bottom no-repeat, url(../images/resume.png) center top no-repeat;
 		background-size: 14vw 2vw, 3.2vw;
@@ -658,7 +663,7 @@
 		top: 1.4vw;
 		left: 3.67vw;
 	}
-	
+
 	.map_container .map_end {
 		background: url(../images/banner.png) center bottom no-repeat, url(../images/end.png) center top no-repeat;
 		background-size: 14vw 2vw, 2vw;
@@ -674,17 +679,6 @@
 		left: 2.05vw;
 	}
 
-	.map_container .map_pointer {
-		background: url(../images/pointer.png) no-repeat;
-		position: absolute;
-		background-size: 1.2vw;
-		width: 1.2vw;
-		height: 1.72vw;
-		top: 27.4vw;
-		left: 9vw;
-		animation: bounce 400ms linear infinite;
-	}
-
 	.map_container_min .map_pointer {
 		display: none;
 	}
@@ -694,6 +688,15 @@
 		display: none;
 	}
 
+	.map_container .map_pointer {
+		background: url(../images/pointer.png) no-repeat;
+		position: absolute;
+		background-size: 1.2vw;
+		width: 1.2vw;
+		height: 1.72vw;
+		animation: bounce 400ms linear infinite;
+	}
+
 	.map_container_min .map_crosshair {
 		background: url(../images/crosshair.svg) no-repeat;
 		background-size: 10vw;
@@ -701,8 +704,6 @@
 		display: block;
 		width: 2.4vw;
 		height: 2.4vw;
-		top: 7.5vw;
-		left:1.54vw;
 		animation: grow 400ms linear infinite;
 	}
 
@@ -729,6 +730,126 @@
 
 	.map_container_min .map_zoom:hover {
 		opacity: 1;
+	}
+
+	.map_container .map_pointer_welcome {
+		top: 27.4vw;
+		left: 9vw;
+	}
+
+	.map_container_min .map_crosshair_welcome {
+		top: 7.8vw;
+		left: 1.5vw;
+	}
+
+	.map_container .map_pointer_about_me {
+		top: 22.8vw;
+		left: 17vw;
+	}
+
+	.map_container_min .map_crosshair_about_me {
+		top: 6.2vw;
+		left: 3.6vw;
+	}
+
+	.map_container .map_pointer_strength {
+		top: 24.9vw;
+		left: 32.2vw;
+	}
+
+	.map_container_min .map_crosshair_strength {
+		top: 7.3vw;
+		left:1 7.65vw;
+	}
+
+	.map_container .map_pointer_skills {
+		top: 25.2vw;
+		left: 44.7vw;
+	}
+
+	.map_container_min .map_crosshair_skills {
+		top: 6.8vw;
+		left: 11.15vw;
+	}
+
+	.map_container .map_pointer_education {
+		top: 17.7vw;
+		left: 39.8vw;
+	}
+
+	.map_container_min .map_crosshair_education {
+		top: 5vw;
+		left: 9.8vw;
+	}
+
+	.map_container .map_pointer_experience {
+		top: 16.6vw;
+		left: 27.1vw;
+	}
+
+	.map_container_min .map_crosshair_experience {
+		top: 5.2vw;
+		left: 6.3vw;
+	}
+
+	.map_container .map_pointer_portfolio {
+		top: 15.6vw;
+		left: 19.8vw;
+	}
+
+	.map_container_min .map_crosshair_portfolio {
+		top: 4.2vw;
+		left: 4.2vw;
+	}
+
+	.map_container .map_pointer_interests {
+		top: 10.5vw;
+		left: 32vw;
+	}
+
+	.map_container_min .map_crosshair_interests {
+		top: 2.9vw;
+		left: 7.7vw;
+	}
+
+	.map_container .map_pointer_testimonial {
+		top: 7.4vw;
+		left: 43.3vw;
+	}
+
+	.map_container_min .map_crosshair_testimonial {
+		top: 1.9vw;
+		left: 10.8vw;
+	}
+
+	.map_container .map_pointer_address {
+		top: 2.8vw;
+		left: 33.1vw;
+	}
+
+	.map_container_min .map_crosshair_address {
+		top: 0.58vw;
+		left: 8.02vw;
+	}
+
+	.map_container .map_pointer_resume {
+		top: 1.8vw;
+		left: 20.2vw;
+	}
+
+	.map_container_min .map_crosshair_resume {
+		top: 0.65vw;
+		left: 4.42vw;
+	}
+
+	.map_container .map_pointer_end {
+		top: 12.2vw;
+		left: 14.2vw;
+	}
+
+	.map_container_min .map_crosshair_end {
+		top: 3.05vw;
+		left: 2.85vw;
 	}
 /* <<< map_container */
 
@@ -763,7 +884,7 @@
 		color: #FFF;
 		position: absolute;
 		width: 12.4vw;
-		padding: 0 0.8vw;		
+		padding: 0 0.8vw;
 	}
 
 	.sign_post_container .sign_post_location.animate {
@@ -826,8 +947,7 @@
 		width: 80vw;
 		height: 41.5vw;
 		margin: 0 10vw;
-		animation: grow 0.6s linear 1;
-		transform-origin: 50% 30%;
+		animation: grow 0.5s 1;
 	}
 
 	.content_display_container .content_about_me: after {
