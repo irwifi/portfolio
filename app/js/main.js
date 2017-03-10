@@ -463,7 +463,24 @@ function resume_init() {
 
 // End Initialization
 function end_init() {
+	location_shift("end")
+}
 
+// Start Over
+function start_over_init() {
+	$(".modal_overlay").css("z-index", "90").show()
+	$(".modal_overlay").on("click", () => {
+		close_overlay()
+		$(".start_over").hide()
+		$(".modal_overlay").css("z-index", "88")
+	})
+	$(".start_over").show()
+	$(".start_over").on("click", () => {
+		close_overlay()
+		$(".start_over").hide()
+		$(".modal_overlay").css("z-index", "88")
+		welcome_init()
+	})
 }
 
 // Skipper function to skip through the steps

@@ -107,6 +107,13 @@
 		to   {transform: rotateY(-360deg);}
 	}
 
+	@keyframes expand {
+		100% {
+			transform: scale3d(1.2, 1.2, 1.2);
+			animation-timing-function: ease-in-out;
+		}
+	}
+
 	* {
 		margin: 0 auto;
 		border: 0;
@@ -679,6 +686,10 @@
 		left: 2.05vw;
 	}
 
+	.map_container .map_start_over {
+		display: none;
+	}
+
 	.map_container_min .map_pointer {
 		display: none;
 	}
@@ -743,7 +754,7 @@
 	}
 
 	.map_container .map_pointer_about_me {
-		top: 22.8vw;
+		top: 22.4vw;
 		left: 17vw;
 	}
 
@@ -1013,3 +1024,55 @@
 		height: 22vw;
 	}
 /* <<< About Me */
+
+/* End >>> */
+	.content_display_container .content_end {
+		background: url(../images/end.png) center top no-repeat;
+		background-size: 20vw;
+		width: 80vw;
+		height: 20.5vw;
+		margin: -7vw 10vw 0 10vw;
+		animation: grow 0.5s 1;
+		padding-top: 21vw;
+	}
+
+	.content_end h1 {
+		margin-bottom:  1vw;
+	}
+
+	.content_end ul li {
+		font-size: 1vw;
+	}
+/* <<< End */
+
+/* Start Over >>> */
+	.start_over {
+		display: none;
+		background: #FF0000;
+		-moz-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		border: 0.8vw solid;
+		width: 24vw;
+		height: 12vw;
+		line-height: 12vw;
+		font-size: 4.5vw;
+		font-weight: bold;
+		color: #FFFFFF;
+		margin: 0 auto;
+		position: absolute;
+		top: 30vh;
+		left: 37.2vw;
+		z-index: 90;
+		animation: spin 2s linear infinite;
+		animation-delay: 1s;
+		cursor: pointer;
+		transition: background 0.6s ease-in-out;
+	}
+
+	.start_over:hover {
+		background: #FFFF00;
+		color: #FF0000;
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+/* <<< Start Over */
