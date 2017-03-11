@@ -1,22 +1,22 @@
 /* Root >>> */
 	@font-face {
 	     font-family: Audiowide;
-	     src: url('../fonts/Audiowide.ttf');
+	     src: url('../assets/fonts/Audiowide.ttf');
 	}
 
 	@font-face {
 	     font-family: Iceland;
-	     src: url('../fonts/Iceland.ttf');
+	     src: url('../assets/fonts/Iceland.ttf');
 	}
 
 	@font-face {
 	     font-family: Rye;
-	     src: url('../fonts/Rye.ttf');
+	     src: url('../assets/fonts/Rye.ttf');
 	}
 
 	@font-face {
 	     font-family: NewRocker;
-	     src: url('../fonts/NewRocker.ttf');
+	     src: url('../assets/fonts/NewRocker.ttf');
 	}
 
 	@keyframes blinker {
@@ -301,7 +301,7 @@
 	.loading {
 		height: inherit;
 		width: inherit;
-		background: url("../images/loading.gif") no-repeat fixed center;
+		background: url("../assets/images/loading.gif") no-repeat fixed center;
 	}
 /* <<< not_ready */
 
@@ -327,7 +327,7 @@
 	.main_display .click_press_touch {
 		display: none;
 		position: absolute;
-		background: url(../images/cpt.png) center no-repeat;
+		background: url(../assets/images/cpt.png) center no-repeat;
 		background-size: 10vw;
 		height: 10vw;
 		width: 12vw;
@@ -450,7 +450,7 @@
 
 /* quote_container >>> */
 	.quote_container {
-		background: url("../images/banner2.png") no-repeat;
+		background: url("../assets/images/banner2.png") no-repeat;
 		background-size: 67vw 11.356vw;
 		position: absolute;
 		text-align: left;
@@ -467,7 +467,7 @@
 
 /* map_container >>> */
 	.map_container {
-		background: url("../images/map.png") no-repeat;
+		background: url("../assets/images/map.png") no-repeat;
 		background-size:  51.7vw 38.6vw;
 		border: 0.32vw solid #222;
 		border-radius: 0.6vw;
@@ -507,7 +507,7 @@
 	}
 
 	.map_container .map_welcome {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/welcome.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/welcome.png) center top no-repeat;
 		background-size: 14vw 2vw, 3vw;
 		padding-top: 3.1vw;
 		top: 30.6vw;
@@ -522,7 +522,7 @@
 	}
 
 	.map_container .map_about_me {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/about_me.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/about_me.png) center top no-repeat;
 		background-size: 14vw 2vw,  3.2vw;
 		padding-top: 3.3vw;
 		top: 25.6vw;
@@ -537,7 +537,7 @@
 	}
 
 	.map_container .map_strength {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/strength.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/strength.png) center top no-repeat;
 		background-size: 14vw 2vw,  4.3vw;
 		padding-top: 5.6vw;
 		top: 27.5vw;
@@ -552,7 +552,7 @@
 	}
 
 	.map_container .map_skills {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/skills.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/skills.png) center top no-repeat;
 		background-size: 14vw 2vw,  2vw;
 		padding-top: 2.1vw;
 		top: 28.2vw;
@@ -567,7 +567,7 @@
 	}
 
 	.map_container .map_education {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/education.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/education.png) center top no-repeat;
 		background-size: 14vw 2vw,  3.2vw;
 		padding-top: 3.3vw;
 		top: 20.8vw;
@@ -582,7 +582,7 @@
 	}
 
 	.map_container .map_experience {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/experience.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/experience.png) center top no-repeat;
 		background-size: 14vw 2vw, 7vw;
 		padding-top: 7.1vw;
 		top: 19.4vw;
@@ -597,7 +597,7 @@
 	}
 
 	.map_container .map_portfolio {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/portfolio.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/portfolio.png) center top no-repeat;
 		background-size: 14vw 2vw, 4vw;
 		padding-top: 3.6vw;
 		top: 17.9vw;
@@ -612,7 +612,7 @@
 	}
 
 	.map_container .map_interests {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/interests.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/interests.png) center top no-repeat;
 		background-size: 14vw 2vw, 6vw;
 		padding-top: 4.0vw;
 		top: 12.6vw;
@@ -627,7 +627,7 @@
 	}
 
 	.map_container .map_testimonial {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/testimonial.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/testimonial.png) center top no-repeat;
 		background-size: 14vw 2vw, 3.2vw;
 		padding-top: 2.3vw;
 		top: 10.0vw;
@@ -642,7 +642,7 @@
 	}
 
 	.map_container .map_address {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/address.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/address.png) center top no-repeat;
 		background-size: 14vw 2vw, 1.4vw;
 		padding-top: 1.7vw;
 		top: 5.4vw;
@@ -657,7 +657,7 @@
 	}
 
 	.map_container .map_resume {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/resume.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/resume.png) center top no-repeat;
 		background-size: 14vw 2vw, 3.2vw;
 		padding-top: 3.3vw;
 		top: 4.9vw;
@@ -672,7 +672,7 @@
 	}
 
 	.map_container .map_end {
-		background: url(../images/banner.png) center bottom no-repeat, url(../images/end.png) center top no-repeat;
+		background: url(../assets/images/banner.png) center bottom no-repeat, url(../assets/images/end.png) center top no-repeat;
 		background-size: 14vw 2vw, 2vw;
 		padding-top: 2.3vw;
 		top:14.8vw;
@@ -700,7 +700,7 @@
 	}
 
 	.map_container .map_pointer {
-		background: url(../images/pointer.png) no-repeat;
+		background: url(../assets/images/pointer.png) no-repeat;
 		position: absolute;
 		background-size: 1.2vw;
 		width: 1.2vw;
@@ -709,7 +709,7 @@
 	}
 
 	.map_container_min .map_crosshair {
-		background: url(../images/crosshair.svg) no-repeat;
+		background: url(../assets/images/crosshair.svg) no-repeat;
 		background-size: 10vw;
 		position: absolute;
 		display: block;
@@ -719,7 +719,7 @@
 	}
 
 	.map_container_min .map_zoom {
-		background: url(../images/zoom.png) no-repeat;
+		background: url(../assets/images/zoom.png) no-repeat;
 		background-size: 2vw;
 		position: absolute;
 		display: block;
@@ -921,7 +921,7 @@
 	}
 
 	.sign_post_container .sign_post_next_hover {
-		background: url(../images/white_arrow.png) right no-repeat;
+		background: url(../assets/images/white_arrow.png) right no-repeat;
 		background-size: 3vw;
 		cursor: pointer;
 		height: 2vw;
@@ -932,7 +932,7 @@
 	}
 
 	.sign_post_container .sign_post_next_hover:hover {
-		background: url(../images/yellow_arrow.png) right no-repeat;
+		background: url(../assets/images/yellow_arrow.png) right no-repeat;
 		background-size: 3vw;
 		animation: lean 1.0s linear infinite;
 	}
@@ -953,7 +953,7 @@
 
 /* About Me >>> */
 	.content_display_container .content_about_me {
-		background: url(../images/book.svg) center no-repeat;
+		background: url(../assets/images/book.svg) center no-repeat;
 		background-size: 70vw 41vw;
 		width: 80vw;
 		height: 41.5vw;
@@ -973,7 +973,7 @@
 	}
 
 	.content_about_me .coffee_stain {
-		background: url(../images/coffee_stain.svg) center no-repeat;
+		background: url(../assets/images/coffee_stain.svg) center no-repeat;
 		background-size: 12vw;
 		position: absolute;
 		top: 20vw;
@@ -998,7 +998,7 @@
 	}
 
 	.content_about_me h1 {
-		background:  url(../images/title.png) center bottom no-repeat;
+		background:  url(../assets/images/title.png) center bottom no-repeat;
 		background-size: 12vw 1vw;
 		margin-bottom: 1.4vw;
 		font-family: Rye;
@@ -1016,7 +1016,7 @@
 	}
 
 	.content_about_me .photo {
-		background: url(../images/frame.png) center no-repeat, url(../images/photo.jpg) center no-repeat;
+		background: url(../assets/images/frame.png) center no-repeat, url(../assets/images/photo.jpg) center no-repeat;
 		background-size: 19vw 22vw, 14vw;
 		filter: sepia(90%);
 		padding: 0.6vw;
@@ -1025,9 +1025,75 @@
 	}
 /* <<< About Me */
 
+/* Resume >>> */
+	.content_display_container .content_resume {
+		width: 80vw;
+		height: 41.5vw;
+		margin: 0 10vw;
+	}
+
+	.content_resume: after {
+		clear: both;
+	}
+
+	.content_resume .pdf_resume {
+		width:24vw;
+		height: 36vw;
+		float: left;
+		margin-left: 15vw;
+		position: relative;
+	}
+
+	.content_resume .word_resume {
+		width:24vw;
+		height: 36vw;
+		float: right;
+		margin-right: 15vw;
+		position: relative;
+	}
+
+	.content_resume img {
+		position: absolute;
+	}
+
+	.content_resume .folder {
+		max-width: 20vw;
+		min-width: 20vw;
+		top:17vw;
+	}
+
+	.content_resume .pdf_folder {
+		left: 0vw;
+	}
+
+	.content_resume .word_folder {
+		left: 4vw;
+	}
+
+	.content_resume .resume {
+		max-width: 12vw;
+		min-width: 12vw;
+		top:10vw;
+		cursor: pointer;
+		transition: transform 0.2s ease-in-out
+	}
+
+	.content_resume .resume:hover {
+		transform: translate3d(0, -9.3vw, 0);
+	}
+
+	.content_resume .pdf_file {
+		left: 2vw;
+	}
+
+	.content_resume .word_file {
+		left: 6vw;
+	}
+/* <<< Resume */
+
 /* End >>> */
 	.content_display_container .content_end {
-		background: url(../images/end.png) center top no-repeat;
+		background: url(../assets/images/end.png) center top no-repeat;
 		background-size: 20vw;
 		width: 80vw;
 		height: 20.5vw;

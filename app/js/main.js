@@ -375,20 +375,23 @@ const sign_post_module = (() => {
 })()
 
 // Map location shift actions
-const location_shift = (map_location) => {
+const location_shift = (params) => {
 	pending_task.execute_tasks()
-	$(".map_pointer").attr("class", "map_pointer map_pointer_" + map_location)
-	$(".map_crosshair").attr("class", "map_crosshair map_crosshair_" + map_location)
+	$(".map_pointer").attr("class", "map_pointer map_pointer_" + params.map_location)
+	$(".map_crosshair").attr("class", "map_crosshair map_crosshair_" + params.map_location)
 	$(".sign_post_container div").animate({"opacity": "1"},600).hide()
 	$(".sign_post_next_hover").on("click", sign_post_module.sign_post_next_click)
 	$(".quote_container").hide(600)
 	$(".content_display_container .content_subcontainer").hide()
-	$(".sign_post_container .sign_post_location").text($(".map_" + map_location).text())
-	$(".sign_post_container .sign_post_next").text($(".map_" + map_location + " + .map_location").text())
+	$(".sign_post_container .sign_post_location").text($(".map_" + params.map_location).text())
+	$(".sign_post_container .sign_post_next").text($(".map_" + params.map_location + " + .map_location").text())
 	$(".sign_post_container").css({"bottom": "0"}).show()
 	$(".sign_post_container div").show()
 	$(".content_display_container").show()
-	$(".content_display_container .content_" + map_location).show()
+	$(".content_display_container .content_" + params.map_location).show()
+	if(params.quote_text !== undefined) {
+		$(".quote_container").html(params.quote_text).show(600)
+	}
 }
 
 // Welcome Initialization
@@ -412,8 +415,7 @@ function welcome_init() {
 
 // About Me Initialization
 function about_me_init() {
-	location_shift("about_me")
-	$(".quote_container").text("This is how I look.").show(600)
+	location_shift({"map_location": "about_me", "quote_text": "This is how I look."})
 }
 
 // Strength Initialization
@@ -458,12 +460,13 @@ function address_init() {
 
 // Resume Initialization
 function resume_init() {
-
+	location_shift({"map_location": "resume", "quote_text": "You can download my resume here. <br/> Click below to download resume in PDF or Word format.\
+		<br/> Check your download folder once you click on the file type."})
 }
 
 // End Initialization
 function end_init() {
-	location_shift("end")
+	location_shift({"map_location": "end"})
 }
 
 // Start Over
