@@ -19,6 +19,24 @@
 	     src: url('../assets/fonts/NewRocker.ttf');
 	}
 
+	* {
+		margin: 0 auto;
+		border: 0;
+		padding: 0;
+		text-align: center;
+		font-family: Iceland;
+	}
+
+	body {
+		width: 100vw;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background: #00bff3;
+	}
+/* <<< Root */
+
+/* Animation >>> */
 	@keyframes blinker {
 		50% { opacity: 0; }
 	}
@@ -114,21 +132,43 @@
 		}
 	}
 
-	* {
-		margin: 0 auto;
-		border: 0;
-		padding: 0;
-		text-align: center;
-		font-family: Iceland;
+	@keyframes address_world_map {
+		100% {
+			width: 40vw;
+			height:20.5vw;
+			top: 0vw;
+			transform: translate3d(-10vw, 0, 0);
+			background-size: 35vw;
+		}
 	}
 
-	body {
-		width: 100vw;
-		height: 100vh;
-		overflow: auto;
-		background: #00bff3;
+	@keyframes address_magnify {
+		0% {opacity: 1;}
+		100% {
+			opacity: 1;
+			transform: translate3d(-22.5vw, -7.6vw, 0);
+		}
 	}
-/* <<< Root */
+
+	@keyframes address_post_box {
+		100% {
+			font-size: 2vw;
+			font-weight: bold;
+		}
+	}
+
+	@keyframes interests_swipe_right {
+		100% {
+			transform: translate3d(70vw, 0, 0);
+		}
+	}
+
+	@keyframes interests_swipe_left {
+		100% {
+			transform: translate3d(-70vw, 0, 0);
+		}
+	}
+/* <<< Animation */
 
 /* noscript >>> */
 	noscript {
@@ -948,6 +988,9 @@
 
 	.content_display_container .content_subcontainer {
 		display: none;
+		width: 80vw;
+		height: 41.5vw;
+		margin: 0 10vw;
 	}
 /* <<< content_display_container */
 
@@ -955,9 +998,6 @@
 	.content_display_container .content_about_me {
 		background: url(../assets/images/book.svg) center no-repeat;
 		background-size: 70vw 41vw;
-		width: 80vw;
-		height: 41.5vw;
-		margin: 0 10vw;
 		animation: grow 0.5s 1;
 	}
 
@@ -1025,13 +1065,130 @@
 	}
 /* <<< About Me */
 
-/* Resume >>> */
-	.content_display_container .content_resume {
-		width: 80vw;
-		height: 41.5vw;
-		margin: 0 10vw;
+/* Interests >>> */
+	.content_display_container .content_interests {
+		width: 90vw;
+		margin-left: 5vw;
+		margin-right: 0vw;
+		overflow: hidden;
 	}
 
+	.content_interests .interests {
+		width: 45vw;
+		height: 7vw;
+		line-height: 7vw;
+		font-size: 2vw;
+		background: #fbdb65;
+		border: 0.2vw solid #d60;
+		border-radius: 0.6vw;
+		margin-top: 0.6vw;
+	}
+
+	.content_interests .hidden_left {
+		text-align: left;
+		padding-left: 9.8vw;
+		margin-left: -68vw;
+		animation: interests_swipe_right 0.2s;
+    	animation-fill-mode: forwards;
+	}
+
+	.content_interests .hidden_right {
+		text-align: right;
+		padding-right: 9.8vw;
+		margin-right: -68vw;
+		animation: interests_swipe_left 0.2s;
+    	animation-fill-mode: forwards;
+	}
+
+	.content_interests .order1 {
+		background: url(../assets/images/cricket.png) 1vw center no-repeat #fbdb65;
+		background-size: 8vw;
+		animation-delay: 1.3s;
+	}
+
+	.content_interests .order2 {
+		background: url(../assets/images/movies.png) right 1.3vw center no-repeat #fbdb65;
+		background-size: 7vw;
+		animation-delay: 2s;
+	}
+
+	.content_interests .order3 {
+		background: url(../assets/images/music.png) left 1.5vw center no-repeat #fbdb65;
+		background-size: 7vw;
+		animation-delay: 2.7s;
+	}
+
+	.content_interests .order4 {
+		background: url(../assets/images/games.png) right 0.9vw center no-repeat #fbdb65;
+		background-size: 8vw;
+		animation-delay: 3.4s;
+	}
+
+	.content_interests .order5 {
+		background: url(../assets/images/rubik.png) left 0.6vw center no-repeat #fbdb65;
+		background-size: 9vw;
+		animation-delay: 4.1s;
+	}
+/* <<< Interests */
+
+/* Testimonial >>> */
+	.content_display_container .content_testimonial {
+		background: url(../assets/images/coming_soon.png) center no-repeat;
+		background-size: 60vw;
+		animation: appear 2s 1;
+	}
+/* <<< Testimonial */
+
+/* Address >>> */
+	.content_address {
+		position: relative;
+	}
+
+	.content_address .world_map {
+		background: url(../assets/images/world_map.png) center no-repeat;
+		background-size: 70vw;
+		width: 80vw;
+		height: 41.5vw;
+		position: absolute;
+		top: 0vw;
+		animation: grow, address_world_map;
+		animation-delay: 0s, 1.5s;
+    	animation-duration: 1.2s, 1.2s;
+    	animation-fill-mode: forwards;
+	}
+
+	.content_address .post_box {
+		background: url(../assets/images/post_box.png) center no-repeat;
+		background-size: 42vw;
+		width: 46vw;
+		height: 41.5vw;
+		position: absolute;
+		top: 0vw;
+		left:17vw;
+		line-height: 40vw;
+		animation: address_post_box;
+		animation-delay: 2.8s;
+    	animation-duration: 0.6s;
+    	animation-fill-mode: forwards;
+	}
+
+	.content_address .magnify_glass {
+		opacity: 0;
+		background: url(../assets/images/magnify.png) center no-repeat;
+		background-size: 33vw;
+		width:35vw;
+		height: 23vw;
+		position: absolute;
+		top: 18vw;
+		left: 54vw;
+		animation: address_magnify;
+		animation-delay: 2.2s;
+    	animation-duration: 1.2s;
+    	animation-fill-mode: forwards;
+	}
+/* <<< Address */
+
+/* Resume >>> */
 	.content_resume: after {
 		clear: both;
 	}
@@ -1095,7 +1252,6 @@
 	.content_display_container .content_end {
 		background: url(../assets/images/end.png) center top no-repeat;
 		background-size: 20vw;
-		width: 80vw;
 		height: 20.5vw;
 		margin: -7vw 10vw 0 10vw;
 		animation: grow 0.5s 1;

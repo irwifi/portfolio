@@ -445,17 +445,17 @@ function portfolio_init() {
 
 // Interests Initialization
 function interests_init() {
-
+	location_shift({"map_location": "interests", "quote_text": "This is how I waste my time.."})
 }
 
 // Testimonial Initialization
 function testimonial_init() {
-
+	location_shift({"map_location": "testimonial", "quote_text": "Coming Soon.."})
 }
 
 // Address Initialization
 function address_init() {
-
+	location_shift({"map_location": "address", "quote_text": "I live here.. Nepal <br/> My email address is - <span style='font-size: 3vw; color:#FF0;'>IRWIFI@GMAIL.COM</span>"})
 }
 
 // Resume Initialization
