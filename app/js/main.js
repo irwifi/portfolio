@@ -420,7 +420,7 @@ function about_me_init() {
 
 // Strength Initialization
 function strength_init() {
-
+	location_shift({"map_location": "strength", "quote_text": "My Strengths.."})
 }
 
 // Skills Initialization

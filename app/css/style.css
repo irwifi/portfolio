@@ -168,6 +168,12 @@
 			transform: translate3d(-70vw, 0, 0);
 		}
 	}
+
+	@keyframes strength_swipe_right {
+		100% {
+			transform: translate3d(70vw, 0, 0);
+		}
+	}
 /* <<< Animation */
 
 /* noscript >>> */
@@ -810,7 +816,7 @@
 
 	.map_container_min .map_crosshair_strength {
 		top: 7.3vw;
-		left:1 7.65vw;
+		left: 7.65vw;
 	}
 
 	.map_container .map_pointer_skills {
@@ -1064,6 +1070,73 @@
 		height: 22vw;
 	}
 /* <<< About Me */
+
+/* Strength >>> */
+	.content_display_container .content_strength {
+		width: 90vw;
+		margin-left: 5vw;
+		margin-right: 0vw;
+		overflow: hidden;
+	}
+
+	.content_strength .strength {
+		width: 31.1vw;
+		height: 5.3vw;
+		line-height: 5.3vw;
+		font-size: 2vw;
+		background: #c3ff99;
+		border: 0.2vw solid #007b33;
+		border-radius: 0.6vw;
+		margin-top: 0.2vw;
+		text-align: left;
+		padding-left: 8.8vw;
+		margin-left: -45vw;
+		animation: strength_swipe_right 0.2s;
+    	animation-fill-mode: forwards;
+	}
+
+	.content_strength .order1 {
+		background: url(../assets/images/solution.png) 1vw center no-repeat #c3ff99;
+		background-size: 7vw;
+		animation-delay: 1s;
+	}
+
+	.content_strength .order2 {
+		background: url(../assets/images/thinking.png) 1vw center no-repeat #c3ff99;
+		background-size: 6vw;
+		animation-delay: 1.5s;
+	}
+
+	.content_strength .order3 {
+		background: url(../assets/images/resource.png) 3vw center no-repeat #c3ff99;
+		background-size: 2.3vw;
+		animation-delay: 2s;
+	}
+
+	.content_strength .order4 {
+		background: url(../assets/images/positive.png) 2vw center no-repeat #c3ff99;
+		background-size: 4vw;
+		animation-delay: 2.5s;
+	}
+
+	.content_strength .order5 {
+		background: url(../assets/images/learner.png) 1vw center no-repeat #c3ff99;
+		background-size: 6vw;
+		animation-delay: 3s;
+	}
+
+	.content_strength .order6 {
+		background: url(../assets/images/analysis.png) 2vw center no-repeat #c3ff99;
+		background-size: 4.4vw;
+		animation-delay: 3.5s;
+	}
+
+	.content_strength .order7 {
+		background: url(../assets/images/never.png) 1vw center no-repeat #c3ff99;
+		background-size: 6.3vw;
+		animation-delay: 4s;
+	}
+/* <<< Strength */
 
 /* Interests >>> */
 	.content_display_container .content_interests {
