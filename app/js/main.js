@@ -425,22 +425,37 @@ function strength_init() {
 
 // Skills Initialization
 function skills_init() {
-
+	location_shift({"map_location": "skills"})
 }
 
 // Education Initialization
 function education_init() {
-
+	location_shift({"map_location": "education", "quote_text": "My Education.. <br/> <span style='font-size: 2vw; color:#FF0;'>BACHELOR OF ENGINEERING in Computer</span>"})
 }
 
 // Experience Initialization
 function experience_init() {
+	location_shift({"map_location": "experience", "quote_text": "My Experience.."})
+	$(".experience_previous").off("click")
+	$(".experience_next").off("click")
+	$(".experience_previous").on("click", () => {experience_navigation({"direction": "-1"})})
+	$(".experience_next").on("click", () => {experience_navigation({"direction": "1"})})
+}
 
+// Experience navigation function
+const experience_navigation = (params) => {
+	const new_page = +$(".experience_container").attr("data-page") + (1 * params.direction)
+	$(".experience_container").animate({"margin-left": (2 + new_page * (-40)) + "vw"}, 500)
+	$(".experience_container").attr({"data-page": new_page})
+	if(new_page === 0) {$(".experience_previous").addClass("inactive")}
+	if(new_page === 1) {$(".experience_previous").removeClass("inactive")}
+	if(new_page === 2) {$(".experience_next").removeClass("inactive")}
+	if(new_page === 3) {$(".experience_next").addClass("inactive")}
 }
 
 // Portfolio Initialization
 function portfolio_init() {
-
+	location_shift({"map_location": "portfolio", "quote_text": "My Portfolio.."})
 }
 
 // Interests Initialization
