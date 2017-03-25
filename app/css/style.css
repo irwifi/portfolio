@@ -1140,6 +1140,33 @@
 
 /* Skills >>> */
 	.content_display_container .content_skills {
+		width: 99vw;
+		height: 99vh;
+		overflow: hidden;
+		position: relative;
+		margin: 0;
+		margin-top: -12vw;
+	}
+
+	.content_skills .thing {
+		transition-property: transform;
+		transition-timing-function: ease-in-out;
+		position: absolute;
+		color: #ff3000;
+		font-size: 2vw;
+	}
+
+	.thing .circle {
+		border-radius: 50px;
+		background-color: #FFF;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+
+	.thing .lable {
+		position: absolute;
+		top: 0;
 	}
 /* <<< Skills */
 
@@ -1258,7 +1285,130 @@
 /* <<< Experience */
 
 /* Portfolio >>> */
-	.content_display_container .content_portfolio {
+	.content_portfolio {
+		position: absolute;
+	}
+
+	.content_portfolio .portfolio_gallery {
+		width: 80vw;
+		height: 41.5vw;
+	}
+
+	.portfolio_gallery .portfolio {
+		display: inline-block;
+		width: 24vw;
+		height: 18vw;
+		margin: 1vw;
+		border: 0.2vw solid white;
+		border-radius: 0.6vw;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.portfolio_gallery .order1 {
+		background: url(../assets/portfolio/cetrm.png) left bottom no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio_gallery .order2 {
+		background: url(../assets/portfolio/hospital.png) left 4.1vw no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio_gallery .order3 {
+		background: url(../assets/portfolio/mt4.png) left 5.2vw no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio_gallery .order4 {
+		background: url(../assets/portfolio/auction.png) left bottom no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio_gallery .order5 {
+		background: url(../assets/portfolio/jobnobs.png) left bottom no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio_gallery .order6 {
+		background: url(../assets/portfolio/vision_test.png) left 3.7vw no-repeat #444;
+		background-size: 24vw;
+	}
+
+	.portfolio .portfolio_label {
+		background: rgba(0, 0, 0, 0.7);
+		height: 2.4vw;
+		color: white;
+		font-size: 2vw;
+		line-height: 2.4vw;
+		border-top-left-radius: 0.5vw;
+		border-top-right-radius: 0.5vw;
+	}
+
+	.portfolio_gallery .portfolio:hover {
+		border-color: #FF0000;
+		border-width: 0.3vw;
+	}
+
+	.portfolio .portfolio_info {
+		display: none;
+	}
+
+	.order1 .portfolio_info {
+		background: url(../assets/portfolio/cetrm.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.order2 .portfolio_info {
+		background: url(../assets/portfolio/hospital.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.order3 .portfolio_info {
+		background: url(../assets/portfolio/mt4.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.order4 .portfolio_info {
+		background: url(../assets/portfolio/auction.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.order5 .portfolio_info {
+		background: url(../assets/portfolio/jobnobs.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.order6 .portfolio_info {
+		background: url(../assets/portfolio/vision_test.png) left center no-repeat #EEE;
+		background-size: 40vw;
+	}
+
+	.content_portfolio .portfolio_detail {
+		display: none;
+		border:0.5vw solid #888;
+		border-radius: 0.8vw;
+		width: 41vw;
+		height: 30vw;
+		position: absolute;
+		z-index: 90;
+		top: 3vw;
+		left: -2vw;
+		animation: grow 0.8s ease-in-out 1;
+		text-align: left;
+		padding-top:2vw;
+		padding-left: 42vw;
+		font-size: 1.6vw;
+	}
+
+	.portfolio_detail h1,
+	.portfolio_detail li {
+		text-align: left;
+		margin-bottom: 1.2vw;
+	}
+
+	.portfolio_detail .mark_red {
+		color: #FF0000;
 	}
 /* <<< Portfolio */
 

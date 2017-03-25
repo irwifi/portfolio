@@ -4,7 +4,7 @@ const skipper_handle = () => {skipper()}
 const portrait_handle = () => {check_portrait()}
 let dev_mode = portrait_handle
 // This mode is for skipping steps during development testing
-dev_mode = skipper_handle
+// dev_mode = skipper_handle
 $(dev_mode)
 
 // Class Audio Controller
@@ -28,7 +28,7 @@ class Audio_controller {
 		}
 	}
 }
-const audio_controller = new Audio_controller();
+const audio_controller = new Audio_controller()
 
 // Pending Tasks Class
 class Pending_task {
@@ -51,7 +51,7 @@ class Pending_task {
 		this.task_array = []
 	}
 }
-const pending_task = new Pending_task();
+const pending_task = new Pending_task()
 
 // Class Document Event for managing various events on document level
 class Doc_event {
@@ -109,7 +109,7 @@ class Doc_event {
 		this.remove_skip = true
 	}
 }
-const doc_event = new Doc_event();
+const doc_event = new Doc_event()
 
 // Checks for the portrait mode
 const check_portrait = () => {
@@ -144,6 +144,63 @@ const check_portrait = () => {
 	} else {
 		init()
 	}
+}
+
+// Skipper function to skip through the steps
+const skipper = () => {
+	// check_portrait()
+		$("noscript").remove()
+		$("#detect_ie").remove()
+		$(".ie_block_script").remove()
+	// init()
+		$("#detect_portrait").remove()
+		$(".not_ready").remove()
+	// /* Avatar block */
+	{
+		// avatar_module.avatar_intro()
+			// $(".avatar_container #avatar_img").css({width: '21.8vw', height: '21.8vw', opacity: 1})
+		// avatar_module.avatar_intro_box_show()
+			// $(".avatar_container .intro_box").css({width: '36vw'}).show()
+		// avatar_module.intro_box_text_show()
+			// $(".intro_box").text($(".intro_box").data("text"))
+		// avatar_module.instruction_msg1_show()
+			// $(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
+		// avatar_module.instruction_msg2_show()
+			// $(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
+			// $(".click_press_touch").css({"top": "37vw", "left": "72vw"}).show()
+			// click_press_touch_show({"event_function": avatar_module.intro_close, "top": "37vw", "left": "72vw"})
+		// avatar_module.intro_close()
+			// pending_task.execute_tasks()
+			// $(".avatar_intro").hide()
+		// avatar_module.avatar_minimize()
+			$(".avatar_container #avatar_img").css({"margin-top":"0", width: '10.45vw', height: '10.45vw'}).hide()
+			$(".avatar_container").css({width: '16.5vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"})
+			$(".avatar_container").addClass("avatar_container_min")
+	}
+	map_module.map_intro()
+		// $(".map_container").show()
+		// $(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.").show()
+		// click_press_touch_show({"event_function": map_module.map_intro_close, "top": "37vw", "left": "76vw"})
+	// // map_module.map_intro_close()
+	// 	pending_task.execute_tasks()
+	// 	$(".quote_container").hide()
+	// 	$(".map_container").css({"background-size":  "14vw 10.45vw", "width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"}).addClass("map_container_min")
+	// 	$(".map_container_min").on("click", map_module.map_maximize)
+	// // sign_post_module.sign_post_intro()
+	// 	$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.").show()
+	// 	$(".sign_post_container .sign_post_location").text("Welcome")
+	// 	$(".sign_post_container .sign_post_next").text("About Me")
+	// 	$(".sign_post_container").css({"bottom": "0"}).show()
+	// 	$(".sign_post_next_hover").on("click", sign_post_module.sign_post_next_click)
+	// // sign_post_module.sign_post_red_arrow_show()
+	// 	$(".sign_post_container .sign_post_red_arrow").show()
+	// 	$(".sign_post_container div").addClass("animate")
+	// 	pending_task.add_task(sign_post_module.sign_post_red_arrow_remove)
+	// 	click_press_touch_show({"event_function": sign_post_module.sign_post_blink_post, "top": "37vw", "left": "62vw"})
+	// // sign_post_module.sign_post_blink_post()
+	// 	pending_task.execute_tasks()
+	// 	$(".sign_post_container .sign_post_red_arrow").hide()
+	// // 	about_me_init()
 }
 
 // Initialize the page
@@ -423,9 +480,95 @@ function strength_init() {
 	location_shift({"map_location": "strength", "quote_text": "My Strengths.."})
 }
 
+// Random circles module
+const circles_module = (() => {
+	const setInitialProperties = (theThings) => {
+		for (let i = 0; i < theThings.length; i++) {
+			let theThing = theThings[i]
+			let theCircle = theThing.querySelector(".circle")
+
+			theCircle.style.opacity = 0.1 + Math.random() * 0.6
+			setTranslate3DTransform(theThing)
+		}
+		setTimeout(() => {kickOffTransition(theThings)}, 200)
+	}
+
+	const kickOffTransition = (theThings) => {
+		for (let i = 0; i < theThings.length; i++) {
+			let theThing = theThings[i];
+			theThing.addEventListener("transitionend", updatePosition, false);
+			theThing.addEventListener("webkitTransitionEnd", updatePosition, false);
+			theThing.addEventListener("mozTransitionEnd", updatePosition, false);
+			theThing.addEventListener("msTransitionEnd", updatePosition, false);
+			theThing.addEventListener("oTransitionEnd", updatePosition, false);
+			setTranslate3DTransform(theThing);
+			setTransitionDuration(theThing);
+		}
+	}
+
+	const updatePosition = (e) => {
+		let theThing = e.currentTarget;
+		if (e.propertyName.indexOf("transform") != -1) {
+			setTranslate3DTransform(theThing);
+			setTransitionDuration(theThing);
+		}
+	}
+
+	const getRandomPosition = () => {
+		return Math.round(-1 + Math.random() * 92);
+	}
+
+	const getRandomDuration = () => {
+		return (20 + Math.random() * 40) + "s";
+	}
+
+	const getSupportedPropertyName = (properties) => {
+		for (let i = 0; i < properties.length; i++) {
+			if (typeof document.body.style[properties[i]] != "undefined") {
+				return properties[i];
+			}
+		}
+		return null;
+	}
+
+	const setTranslate3DTransform = (element) => {
+		const transforms = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"]
+		const transformProperty = getSupportedPropertyName(transforms)
+		element.style[transformProperty] = "translate3d(" + getRandomPosition() + "vw" + ", " + getRandomPosition() + "vh" + ", 0)";
+	}
+
+	const setTransitionDuration = (element) => {
+		const transitionDurations = ["transitionDuration", "msTransitionDuration", "webkitTransitionDuration", "mozTransitionDuration", "oTransitionDuration"]
+		const transitionDurationProperty = getSupportedPropertyName(transitionDurations)
+		if (transitionDurationProperty) {
+			element.style[transitionDurationProperty] = getRandomDuration();
+		}
+	}
+
+	return {
+		setInitialProperties
+	}
+})()
+
 // Skills Initialization
 function skills_init() {
 	location_shift({"map_location": "skills"})
+	let skill_list = $(".content_skills").text()
+	$(".content_skills").text("")
+	skill_list = skill_list.split(",")
+	for(let skill_item in skill_list) {
+		let label = skill_list[skill_item].split("-")
+		let circle_size = 4 + +label[1]
+
+		skill_list[skill_item] = '\
+			<div class="thing" style="width: ' + circle_size + 'vw; height: ' + circle_size + 'vw;">\
+				<div class="label" style="margin-top: ' + ((+circle_size)/2 - 1) + 'vw;">' + label[0] + '</div>\
+				<div class="circle" style="width: ' + circle_size + 'vw; height: ' + circle_size + 'vw; border-radius: ' + 0.5 * circle_size + 'vw;"></div>\
+			</div>'
+		 $(".content_skills").append(skill_list[skill_item])
+	}
+	const theThings = document.querySelectorAll(".thing")
+	circles_module.setInitialProperties(theThings)
 }
 
 // Education Initialization
@@ -455,7 +598,20 @@ const experience_navigation = (params) => {
 
 // Portfolio Initialization
 function portfolio_init() {
-	location_shift({"map_location": "portfolio", "quote_text": "My Portfolio.."})
+	location_shift({"map_location": "portfolio", "quote_text": "Some of my work.."})
+	$(".portfolio").off("click")
+	$(".portfolio").on("click", function () {
+		$(".modal_overlay").css({"z-index": "90"}).show()
+		$(".modal_overlay").on("click", () => {
+			close_overlay()
+			$(".portfolio_detail").hide()
+			$(".modal_overlay").css("z-index", "88")
+		})
+		$(".portfolio_detail").css({"background": $(".portfolio_info", this).css("background")}).html(
+			"<h1>" + $(".portfolio_label", this).text() + "</h1>" +
+			$(".portfolio_info", this).html()
+		).show()
+	})
 }
 
 // Interests Initialization
@@ -499,61 +655,4 @@ function start_over_init() {
 		$(".modal_overlay").css("z-index", "88")
 		welcome_init()
 	})
-}
-
-// Skipper function to skip through the steps
-const skipper = () => {
-	// check_portrait()
-		$("noscript").remove()
-		$("#detect_ie").remove()
-		$(".ie_block_script").remove()
-	// init()
-		$("#detect_portrait").remove()
-		$(".not_ready").remove()
-	// /* Avatar block */
-	{
-		// avatar_module.avatar_intro()
-			// $(".avatar_container #avatar_img").css({width: '21.8vw', height: '21.8vw', opacity: 1})
-		// avatar_module.avatar_intro_box_show()
-			// $(".avatar_container .intro_box").css({width: '36vw'}).show()
-		// avatar_module.intro_box_text_show()
-			// $(".intro_box").text($(".intro_box").data("text"))
-		// avatar_module.instruction_msg1_show()
-			// $(".instruction_box .instruction_msg1").css({"margin": "0 auto"})
-		// avatar_module.instruction_msg2_show()
-			// $(".instruction_box .instruction_msg2").css({"margin": "0 auto", "margin-top":"1.1vw"})
-			// $(".click_press_touch").css({"top": "37vw", "left": "72vw"}).show()
-			// click_press_touch_show({"event_function": avatar_module.intro_close, "top": "37vw", "left": "72vw"})
-		// avatar_module.intro_close()
-			// pending_task.execute_tasks()
-			// $(".avatar_intro").hide()
-		// avatar_module.avatar_minimize()
-			$(".avatar_container #avatar_img").css({"margin-top":"0", width: '10.45vw', height: '10.45vw'}).hide()
-			$(".avatar_container").css({width: '16.5vw', height: '10.45vw', margin: "0.5vw 0.8vw", "top": "0", "left": "0"})
-			$(".avatar_container").addClass("avatar_container_min")
-	}
-	map_module.map_intro()
-		// $(".map_container").show()
-		// $(".quote_container").html("This is an Interactive Map of the tour. You can click on any location at any time and I will take you there.<br/>Press any key or Click to continue.").show()
-		// click_press_touch_show({"event_function": map_module.map_intro_close, "top": "37vw", "left": "76vw"})
-	// // map_module.map_intro_close()
-	// 	pending_task.execute_tasks()
-	// 	$(".quote_container").hide()
-	// 	$(".map_container").css({"background-size":  "14vw 10.45vw", "width": "14vw", "height": "10.45vw", "margin": "0.5vw 0.8vw", "top": "0", "left": "83.8vw"}).addClass("map_container_min")
-	// 	$(".map_container_min").on("click", map_module.map_maximize)
-	// // sign_post_module.sign_post_intro()
-	// 	$(".quote_container").html("This shows the Current and Next location on the tour.<br/>Press any key or Click to continue.").show()
-	// 	$(".sign_post_container .sign_post_location").text("Welcome")
-	// 	$(".sign_post_container .sign_post_next").text("About Me")
-	// 	$(".sign_post_container").css({"bottom": "0"}).show()
-	// 	$(".sign_post_next_hover").on("click", sign_post_module.sign_post_next_click)
-	// // sign_post_module.sign_post_red_arrow_show()
-	// 	$(".sign_post_container .sign_post_red_arrow").show()
-	// 	$(".sign_post_container div").addClass("animate")
-	// 	pending_task.add_task(sign_post_module.sign_post_red_arrow_remove)
-	// 	click_press_touch_show({"event_function": sign_post_module.sign_post_blink_post, "top": "37vw", "left": "62vw"})
-	// // sign_post_module.sign_post_blink_post()
-	// 	pending_task.execute_tasks()
-	// 	$(".sign_post_container .sign_post_red_arrow").hide()
-	// // 	about_me_init()
 }
